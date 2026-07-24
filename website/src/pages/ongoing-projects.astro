@@ -1,19 +1,60 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactSection from '../components/ContactSection.astro';
+
+const ongoingProjects = [
+  {
+    id: "mr-peter-vidyaranyapura",
+    title: "Mr. Peter, Vidyaranyapura",
+    category: "Residential Civil Construction & Electrical Contracting",
+    date: "Active Project (Started Aug 2024)",
+    cover: "https://i0.wp.com/globsol.co.in/wp-content/uploads/2024/08/5.jpeg?w=750",
+    description: "Ongoing full-scale residential building construction and internal electrical distribution work located in Vidyaranyapura, Bengaluru.",
+    gallery: [
+      "https://i0.wp.com/globsol.co.in/wp-content/uploads/2024/08/5.jpeg?w=750",
+      "https://i0.wp.com/globsol.co.in/wp-content/uploads/2024/08/1.jpeg?w=750",
+      "https://i0.wp.com/globsol.co.in/wp-content/uploads/2024/08/2.jpeg?w=750",
+      "https://i0.wp.com/globsol.co.in/wp-content/uploads/2024/08/3.jpeg?w=750",
+      "https://i0.wp.com/globsol.co.in/wp-content/uploads/2024/08/4.jpeg?w=750",
+      "https://i0.wp.com/globsol.co.in/wp-content/uploads/2024/08/6.jpeg?w=750",
+      "https://i0.wp.com/globsol.co.in/wp-content/uploads/2024/08/7.jpeg?w=750",
+      "https://i0.wp.com/globsol.co.in/wp-content/uploads/2024/08/8.jpeg?w=750",
+      "https://i0.wp.com/globsol.co.in/wp-content/uploads/2024/08/10.jpeg?w=750",
+      "https://i0.wp.com/globsol.co.in/wp-content/uploads/2024/08/11.jpeg?w=750",
+      "https://i0.wp.com/globsol.co.in/wp-content/uploads/2024/08/12.jpeg?w=750"
+    ]
+  },
+  {
+    id: "roshan-residency-hennur",
+    title: "Mr. Roshan Residency, Hennur",
+    category: "Civil Construction & Structural Engineering",
+    date: "Active Project (Started Apr 2024)",
+    cover: "https://i0.wp.com/globsol.co.in/wp-content/uploads/2024/04/20240203_181938.jpg?w=750",
+    description: "Multi-story residential development under active execution, including structural work, masonry, and foundational electrical installation in Hennur, Bengaluru.",
+    gallery: [
+      "https://i0.wp.com/globsol.co.in/wp-content/uploads/2024/04/20240203_181938.jpg?w=750",
+      "https://i0.wp.com/globsol.co.in/wp-content/uploads/2024/04/20240129_114431.jpg?w=750",
+      "https://i0.wp.com/globsol.co.in/wp-content/uploads/2024/04/20240129_110932.jpg?w=750",
+      "https://i0.wp.com/globsol.co.in/wp-content/uploads/2024/04/20240129_110928.jpg?w=750",
+      "https://i0.wp.com/globsol.co.in/wp-content/uploads/2024/04/20240129_115007.jpg?w=750",
+      "https://i0.wp.com/globsol.co.in/wp-content/uploads/2024/04/20240129_113622.jpg?w=750"
+    ]
+  }
+];
 ---
 
 <BaseLayout 
   title="Ongoing Projects | GlobSol Power Pvt Ltd"
-  description="Current ongoing civil construction, 33kV electrical contracting, and solar PV EPC projects."
+  description="Explore current ongoing civil construction, 33kV electrical contracting, and solar PV EPC developments managed by GlobSol Power Pvt Ltd."
 >
+  <!-- Banner -->
   <section class="page-banner-section pt-130 pb-80" style="background: linear-gradient(135deg, #1e73be 0%, #0d4b82 100%);">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center text-white">
-          <span class="text-white-50 text-uppercase fw-bold tracking-wider">Projects</span>
-          <h1 class="display-4 fw-bold text-white mt-2 mb-3">Ongoing Projects</h1>
-          <p class="lead max-w-xl mx-auto opacity-90" style="max-width: 700px; margin: 0 auto;">
+          <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold text-uppercase mb-3">Under Execution</span>
+          <h1 class="display-4 fw-bold text-white mb-3">Ongoing Projects</h1>
+          <p class="lead max-w-xl mx-auto" style="color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto;">
             Active Infrastructure & Electrification Engineering Developments Across India
           </p>
         </div>
@@ -21,21 +62,47 @@ import ContactSection from '../components/ContactSection.astro';
     </div>
   </section>
 
-  <section class="py-5 bg-white">
+  <!-- Ongoing Projects Grid -->
+  <section class="py-5 bg-light">
     <div class="container py-4">
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
-          <div class="p-4 p-md-5 rounded-4 shadow-sm bg-light text-center mb-5">
-            <h3 class="h4 fw-bold text-primary mb-3">Active Infrastructure Developments</h3>
-            <p class="text-secondary max-w-xl mx-auto mb-4">
-              Our engineering teams are currently executing high-voltage substation commissioning, commercial civil developments, and turnkey solar installations with uncompromised adherence to safety and schedules.
-            </p>
-            <div class="d-flex justify-content-center gap-3 flex-wrap">
-              <a href="/completed-projects" class="btn btn-outline-primary fw-bold px-4 py-2 rounded-pill">View Completed Works</a>
-              <a href="/contact" class="btn btn-primary fw-bold px-4 py-2 rounded-pill">Inquire for New Project</a>
+      <div class="row g-4">
+        {ongoingProjects.map((project) => (
+          <div class="col-lg-6 col-md-12">
+            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="position-relative overflow-hidden" style="height: 320px;">
+                <a href={project.cover} class="glightbox" data-gallery={project.id} title={project.title}>
+                  <img 
+                    src={project.cover} 
+                    alt={project.title} 
+                    class="w-100 h-100 object-fit-cover transition-all" 
+                    style="object-fit: cover;"
+                  />
+                </a>
+                <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill shadow-sm fw-bold">
+                  In Progress
+                </span>
+              </div>
+              <div class="card-body p-4 d-flex flex-column justify-content-between">
+                <div>
+                  <span class="text-primary fw-bold text-uppercase small tracking-wider">{project.category}</span>
+                  <h3 class="h4 fw-bold text-dark mt-1 mb-2">{project.title}</h3>
+                  <p class="text-secondary mb-4">{project.description}</p>
+                </div>
+
+                <div>
+                  <h5 class="fw-bold fs-6 text-dark mb-3">Progress Photo Gallery (Click to Expand):</h5>
+                  <div class="d-flex gap-2 flex-wrap">
+                    {project.gallery.map((imgUrl, index) => (
+                      <a href={imgUrl} class="glightbox rounded-3 overflow-hidden shadow-sm d-inline-block" data-gallery={project.id} title={`${project.title} - Photo ${index + 1}`}>
+                        <img src={imgUrl} alt={`${project.title} gallery thumbnail ${index + 1}`} style="width: 70px; height: 55px; object-fit: cover; border-radius: 6px;" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>

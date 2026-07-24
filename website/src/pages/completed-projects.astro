@@ -1,20 +1,105 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import FeaturedProjects from '../components/FeaturedProjects.astro';
 import ContactSection from '../components/ContactSection.astro';
+
+const completedProjects = [
+  {
+    id: "janani-water-technologies",
+    title: "M/s Janani Water Technologies Pvt Ltd",
+    category: "Electrical & Civil Contracting",
+    date: "Completed Jan 2024",
+    cover: "/assets/img/projects/janani-water-technologies/cover.jpg",
+    description: "Complete electrical installation, wiring, panel setup, and civil structural works executed to highest engineering standards for Janani Water Technologies.",
+    gallery: [
+      "/assets/img/projects/janani-water-technologies/cover.jpg",
+      "/assets/img/projects/janani-water-technologies/gallery-1.jpg",
+      "/assets/img/projects/janani-water-technologies/gallery-2.jpg",
+      "/assets/img/projects/janani-water-technologies/gallery-3.jpg",
+      "/assets/img/projects/janani-water-technologies/gallery-4.jpg",
+      "/assets/img/projects/janani-water-technologies/gallery-5.jpg"
+    ]
+  },
+  {
+    id: "rohith-residence",
+    title: "Mr. Rohith Residence",
+    category: "Civil Construction & Electrical Contracting",
+    date: "Completed Jan 2024",
+    cover: "/assets/img/projects/rohith-residence/cover.jpg",
+    description: "Premium residential civil construction and high-grade electrical wiring work executed with complete compliance to modern safety standards.",
+    gallery: [
+      "/assets/img/projects/rohith-residence/cover.jpg",
+      "/assets/img/projects/rohith-residence/gallery-1.jpg",
+      "/assets/img/projects/rohith-residence/gallery-2.jpg",
+      "/assets/img/projects/rohith-residence/gallery-3.jpg"
+    ]
+  }
+];
 ---
 
-<BaseLayout title="Completed Projects | GlobSol Power Pvt Ltd">
-  <section class="py-6 bg-dark text-white text-center" style="background: var(--gs-dark) !important; padding-top: 140px;">
+<BaseLayout 
+  title="Completed Projects | GlobSol Power Pvt Ltd"
+  description="Explore completed civil construction, 33kV electrical contracting, and solar PV EPC projects delivered by GlobSol Power Pvt Ltd."
+>
+  <!-- Banner -->
+  <section class="page-banner-section pt-130 pb-80" style="background: linear-gradient(135deg, #1e73be 0%, #0c4a85 100%);">
     <div class="container">
-      <span class="section-subtitle">Our Track Record</span>
-      <h1 class="display-4 fw-bold text-white mb-3" style="font-family: var(--font-heading);">Completed Projects</h1>
-      <p class="text-secondary fs-5 max-w-xl mx-auto" style="color: #94a3b8 !important;">
-        Delivered with technical accuracy, safety compliance, and client satisfaction.
-      </p>
+      <div class="row">
+        <div class="col-lg-12 text-center text-white">
+          <span class="badge bg-white text-primary px-3 py-2 rounded-pill fw-bold text-uppercase mb-3" style="color: #1e73be !important;">Track Record</span>
+          <h1 class="display-4 fw-bold text-white mb-3">Completed Projects</h1>
+          <p class="lead max-w-xl mx-auto" style="color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto;">
+            Delivered with technical precision, regulatory compliance, and client satisfaction across India.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <FeaturedProjects />
+  <!-- Projects Grid -->
+  <section class="py-5 bg-light">
+    <div class="container py-4">
+      <div class="row g-4">
+        {completedProjects.map((project) => (
+          <div class="col-lg-6 col-md-12">
+            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="position-relative overflow-hidden" style="height: 300px;">
+                <a href={project.cover} class="glightbox" data-gallery={project.id} title={project.title}>
+                  <img 
+                    src={project.cover} 
+                    alt={project.title} 
+                    class="w-100 h-100 object-fit-cover transition-all" 
+                    style="object-fit: cover;"
+                  />
+                  <div class="position-absolute inset-0 bg-dark opacity-0 hover-opacity-20 transition-all"></div>
+                </a>
+                <span class="position-absolute top-0 end-0 m-3 badge bg-success px-3 py-2 rounded-pill shadow-sm">
+                  Completed
+                </span>
+              </div>
+              <div class="card-body p-4 d-flex flex-column justify-content-between">
+                <div>
+                  <span class="text-primary fw-bold text-uppercase small tracking-wider">{project.category}</span>
+                  <h3 class="h4 fw-bold text-dark mt-1 mb-2">{project.title}</h3>
+                  <p class="text-secondary mb-4">{project.description}</p>
+                </div>
+
+                <div>
+                  <h5 class="fw-bold fs-6 text-dark mb-3">Project Photo Gallery (Click to Expand):</h5>
+                  <div class="d-flex gap-2 flex-wrap">
+                    {project.gallery.map((imgUrl, index) => (
+                      <a href={imgUrl} class="glightbox rounded-3 overflow-hidden shadow-sm d-inline-block" data-gallery={project.id} title={`${project.title} - Image ${index + 1}`}>
+                        <img src={imgUrl} alt={`${project.title} gallery thumbnail ${index + 1}`} style="width: 70px; height: 55px; object-fit: cover; border-radius: 6px;" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <ContactSection />
 </BaseLayout>
