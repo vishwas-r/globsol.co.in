@@ -1,65 +1,51 @@
 ---
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <footer class="footer pt-100">
   <div class="container">
     <div class="row">
-      <div class="col-xl-3 col-lg-4 col-md-6">
+      <div class="col-xl-4 col-lg-4 col-md-6">
         <div class="footer-widget mb-60 wow fadeInLeft" data-wow-delay=".2s">
-          <a href="/" class="logo mb-30"><img src="/assets/img/logo/logo.png" alt="GlobSol Power Pvt Ltd" style="max-height: 45px; width: auto;"></a>
-          <p class="mb-30 footer-desc">We Crafted an awesome desig library that is robust and intuitive to use. No matter you're building a business presentation websit.</p>
+          <a href={baseUrl} class="logo mb-30"><img src={`${baseUrl}assets/img/logo/logo.png`} alt="GlobSol Power Pvt Ltd" style="max-height: 45px; width: auto;"></a>
+          <p class="mb-30 footer-desc">Civil Construction, Class 1 Government Licensed Electrical Contractors up to 33kV, and Turnkey Solar PV EPC Solutions across India.</p>
         </div>
       </div>
-      <div class="col-xl-2 offset-xl-1 col-lg-2 col-md-6">
+      <div class="col-xl-2 col-lg-2 col-md-6">
         <div class="footer-widget mb-60 wow fadeInUp" data-wow-delay=".4s">
-          <h4>Quick Link</h4>
+          <h4>Quick Links</h4>
           <ul class="footer-links">
-            <li>
-              <a href="#home">Home</a>
-            </li>
-            <li>
-              <a href="#about">About Us</a>
-            </li>
-            <li>
-              <a href="#service">Service</a>
-            </li> 
-            <li>
-              <a href="#contact">Contact</a>
-            </li>
+            <li><a href={baseUrl}>Home</a></li>
+            <li><a href={`${baseUrl}about-us`}>About Us</a></li>
+            <li><a href={`${baseUrl}services`}>Services</a></li>
+            <li><a href={`${baseUrl}completed-projects`}>Projects</a></li>
+            <li><a href={`${baseUrl}contact`}>Contact Us</a></li>
           </ul>
         </div>
       </div>
       <div class="col-xl-3 col-lg-3 col-md-6">
         <div class="footer-widget mb-60 wow fadeInUp" data-wow-delay=".6s">
-          <h4>Service</h4>
+          <h4>Our Capabilities</h4>
           <ul class="footer-links">
-            <li>
-              <a href="javascript:void(0)">Marketing</a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">Branding</a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">Web Design</a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">Graphics Design</a>
-            </li> 
+            <li><a href={`${baseUrl}services/solar-epc`}>Solar PV EPC Solutions</a></li>
+            <li><a href={`${baseUrl}services/electrical-contractor`}>33kV Substation & Electrical</a></li>
+            <li><a href={`${baseUrl}services/construction-interior-design`}>Civil & Interior Fit-outs</a></li>
+            <li><a href={`${baseUrl}about-us/our-happy-clients`}>Client Track Record</a></li>
           </ul>
         </div>
       </div>
       <div class="col-xl-3 col-lg-3 col-md-6">
         <div class="footer-widget mb-60 wow fadeInRight" data-wow-delay=".8s">
-          <h4>Contact</h4>
+          <h4>Contact Us</h4>
           <ul class="footer-contact">
             <li>
-              <p>+00983467367234</p>
+              <p><i class="lni lni-envelope me-2"></i> info@globsol.co.in</p>
             </li>
             <li>
-              <p>yourmail@gmail.com</p>
+              <p><i class="lni lni-shield me-2"></i> Class 1 Govt Electrical Contractor (33kV)</p>
             </li>
             <li>
-              <p>United State Of America<br>*12 Street House</p>
+              <p><i class="lni lni-map-marker me-2"></i> Pan-India Project Execution</p>
             </li>
           </ul>
         </div>
@@ -69,17 +55,10 @@
     <div class="copyright-area">
       <div class="row align-items-center">
         <div class="col-md-6">
-          <div class="footer-social-links">
-            <ul class="d-flex">
-              <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
-              <li><a href="javascript:void(0)"><i class="lni lni-twitter-filled"></i></a></li>
-              <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
-              <li><a href="javascript:void(0)"><i class="lni lni-instagram-filled"></i></a></li>
-            </ul>
-          </div>
+          <p class="mb-0 text-secondary">© {new Date().getFullYear()} GlobSol Power Pvt Ltd. All rights reserved.</p>
         </div>
         <div class="col-md-6">
-          <p class="wow fadeInUp text-left text-md-right" data-wow-delay=".3s">Developed & Maintained by: <a href="https://vishwas.me/?utm_source=globsol.co.in&utm_medium=footer&utm_campaign=developer_credit" target="_blank" rel="noopener">VR</a></p>
+          <p class="wow fadeInUp text-left text-md-right mb-0" data-wow-delay=".3s">Developed & Maintained by: <a href="https://vishwas.me/?utm_source=globsol.co.in&utm_medium=footer&utm_campaign=developer_credit" target="_blank" rel="noopener">VR</a></p>
         </div>
       </div>
     </div>

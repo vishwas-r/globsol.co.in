@@ -1,4 +1,5 @@
 ---
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <section id="about" class="pt-100">
@@ -8,7 +9,7 @@
         <div class="col-xl-6 col-lg-6">
           <div class="about-img-wrapper">
             <div class="about-img position-relative d-inline-block wow fadeInLeft" data-wow-delay=".3s">
-              <img src="/assets/img/about/about-img.jpg" alt="GlobSol Power Pvt Ltd About Us">
+              <img src={`${baseUrl}assets/img/about/about-img.jpg`} alt="GlobSol Power Pvt Ltd About Us">
 
               <div class="about-experience">
                 <h3>Class 1 Licensed</h3>

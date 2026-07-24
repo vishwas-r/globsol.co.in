@@ -2,21 +2,23 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactSection from '../components/ContactSection.astro';
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const completedProjects = [
   {
     id: "janani-water-technologies",
     title: "M/s Janani Water Technologies Pvt Ltd",
     category: "Electrical & Civil Contracting",
     date: "Completed Jan 2024",
-    cover: "/assets/img/projects/janani-water-technologies/cover.jpg",
+    cover: `${baseUrl}assets/img/projects/janani-water-technologies/cover.jpg`,
     description: "Complete electrical installation, wiring, panel setup, and civil structural works executed to highest engineering standards for Janani Water Technologies.",
     gallery: [
-      "/assets/img/projects/janani-water-technologies/cover.jpg",
-      "/assets/img/projects/janani-water-technologies/gallery-1.jpg",
-      "/assets/img/projects/janani-water-technologies/gallery-2.jpg",
-      "/assets/img/projects/janani-water-technologies/gallery-3.jpg",
-      "/assets/img/projects/janani-water-technologies/gallery-4.jpg",
-      "/assets/img/projects/janani-water-technologies/gallery-5.jpg"
+      `${baseUrl}assets/img/projects/janani-water-technologies/cover.jpg`,
+      `${baseUrl}assets/img/projects/janani-water-technologies/gallery-1.jpg`,
+      `${baseUrl}assets/img/projects/janani-water-technologies/gallery-2.jpg`,
+      `${baseUrl}assets/img/projects/janani-water-technologies/gallery-3.jpg`,
+      `${baseUrl}assets/img/projects/janani-water-technologies/gallery-4.jpg`,
+      `${baseUrl}assets/img/projects/janani-water-technologies/gallery-5.jpg`
     ]
   },
   {
@@ -24,13 +26,13 @@ const completedProjects = [
     title: "Mr. Rohith Residence",
     category: "Civil Construction & Electrical Contracting",
     date: "Completed Jan 2024",
-    cover: "/assets/img/projects/rohith-residence/cover.jpg",
+    cover: `${baseUrl}assets/img/projects/rohith-residence/cover.jpg`,
     description: "Premium residential civil construction and high-grade electrical wiring work executed with complete compliance to modern safety standards.",
     gallery: [
-      "/assets/img/projects/rohith-residence/cover.jpg",
-      "/assets/img/projects/rohith-residence/gallery-1.jpg",
-      "/assets/img/projects/rohith-residence/gallery-2.jpg",
-      "/assets/img/projects/rohith-residence/gallery-3.jpg"
+      `${baseUrl}assets/img/projects/rohith-residence/cover.jpg`,
+      `${baseUrl}assets/img/projects/rohith-residence/gallery-1.jpg`,
+      `${baseUrl}assets/img/projects/rohith-residence/gallery-2.jpg`,
+      `${baseUrl}assets/img/projects/rohith-residence/gallery-3.jpg`
     ]
   }
 ];
@@ -42,7 +44,7 @@ const completedProjects = [
 >
   <!-- Banner -->
   <section class="page-banner-section py-5 bg-gs-gradient text-white text-center">
-    <div class="container py-4">
+    <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <span class="badge bg-white text-primary px-3 py-2 rounded-pill fw-bold text-uppercase mb-3 shadow-sm">Track Record</span>
@@ -57,7 +59,7 @@ const completedProjects = [
 
   <!-- Projects Grid -->
   <section class="py-5 bg-light">
-    <div class="container py-4">
+    <div class="container">
       <div class="row g-4">
         {completedProjects.map((project) => (
           <div class="col-lg-6 col-md-12">

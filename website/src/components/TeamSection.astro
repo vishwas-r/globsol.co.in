@@ -1,4 +1,5 @@
 ---
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <section id="team" class="team-section img-bg pt-130">
@@ -7,9 +8,8 @@
       <div class="col-xl-5 col-lg-7 mx-auto">
         <div class="section-title text-center mb-60">
           <span class="wow fadeInDown" data-wow-delay=".2s">Team</span>
-          <h2 class="wow fadeInUp" data-wow-delay=".4s">Meet Our Expert</h2>
-          <p class="wow fadeInUp" data-wow-delay=".6s">At vero eos et accusamus et iusto odio
-            dignissimos ducimus quiblanditiis praesentium</p>
+          <h2 class="wow fadeInUp" data-wow-delay=".4s">Meet Our Leadership</h2>
+          <p class="wow fadeInUp" data-wow-delay=".6s">Experienced engineering leadership driving civil, electrical, and solar excellence across India.</p>
         </div>
       </div>
     </div>
@@ -17,76 +17,44 @@
       <div class="col-xl-3 col-lg-3 col-md-6">
         <div class="single-team text-center mb-40 wow fadeInUp" data-wow-delay=".2s">
           <div class="team-img">
-            <img src="/assets/img/team/team-1.jpg" alt="Michel Smith">
-            <div class="team-social">
-              <ul>
-                <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
-                <li><a href="javascript:void(0)"><i class="lni lni-twitter-filled"></i></a></li>
-                <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
-                <li><a href="javascript:void(0)"><i class="lni lni-instagram-filled"></i></a></li>
-              </ul>
-            </div>
+            <img src={`${baseUrl}assets/img/team/team-1.jpg`} alt="Engineering Director">
           </div>
           <div class="team-info">
-            <h4>Michel Smith</h4>
-            <span>Product Designer</span>
+            <h4>Engineering Leadership</h4>
+            <span>High-Voltage Electrical (33kV)</span>
           </div>
         </div>
       </div>
       <div class="col-xl-3 col-lg-3 col-md-6">
         <div class="single-team text-center mb-40 wow fadeInUp" data-wow-delay=".4s">
           <div class="team-img">
-            <img src="/assets/img/team/team-2.jpg" alt="David Smith">
-            <div class="team-social">
-              <ul>
-                <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
-                <li><a href="javascript:void(0)"><i class="lni lni-twitter-filled"></i></a></li>
-                <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
-                <li><a href="javascript:void(0)"><i class="lni lni-instagram-filled"></i></a></li>
-              </ul>
-            </div>
+            <img src={`${baseUrl}assets/img/team/team-2.jpg`} alt="Solar EPC Specialist">
           </div>
           <div class="team-info">
-            <h4>David Smith</h4>
-            <span>Graphic Designer</span>
+            <h4>Solar EPC Division</h4>
+            <span>Turnkey Clean Energy</span>
           </div>
         </div>
       </div>
       <div class="col-xl-3 col-lg-3 col-md-6">
         <div class="single-team text-center mb-40 wow fadeInUp" data-wow-delay=".6s">
           <div class="team-img">
-            <img src="/assets/img/team/team-3.jpg" alt="Huge Bea">
-            <div class="team-social">
-              <ul>
-                <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
-                <li><a href="javascript:void(0)"><i class="lni lni-twitter-filled"></i></a></li>
-                <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
-                <li><a href="javascript:void(0)"><i class="lni lni-instagram-filled"></i></a></li>
-              </ul>
-            </div>
+            <img src={`${baseUrl}assets/img/team/team-3.jpg`} alt="Civil Construction Manager">
           </div>
           <div class="team-info">
-            <h4>Huge Bea</h4>
-            <span>Web Designer</span>
+            <h4>Civil Infrastructure</h4>
+            <span>Construction & Interior Fit-outs</span>
           </div>
         </div>
       </div>
       <div class="col-xl-3 col-lg-3 col-md-6">
         <div class="single-team text-center mb-40 wow fadeInUp" data-wow-delay=".8s">
           <div class="team-img">
-            <img src="/assets/img/team/team-4.jpg" alt="Kumar Tulshi">
-            <div class="team-social">
-              <ul>
-                <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
-                <li><a href="javascript:void(0)"><i class="lni lni-twitter-filled"></i></a></li>
-                <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
-                <li><a href="javascript:void(0)"><i class="lni lni-instagram-filled"></i></a></li>
-              </ul>
-            </div>
+            <img src={`${baseUrl}assets/img/team/team-4.jpg`} alt="CEIG Statutory Officer">
           </div>
           <div class="team-info">
-            <h4>Kumar Tulshi</h4>
-            <span>Creative Designer</span>
+            <h4>Statutory & Compliance</h4>
+            <span>CEIG & Grid Approvals</span>
           </div>
         </div>
       </div>

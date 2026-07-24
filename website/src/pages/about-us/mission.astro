@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout 
@@ -147,8 +149,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         Let GlobSol handle your next civil construction, 33kV substation, or turnkey solar EPC project with complete confidence.
       </p>
       <div class="d-flex justify-content-center align-items-center flex-wrap gap-3">
-        <a href="/contact" class="btn btn-light btn-lg fw-bold text-primary px-4 rounded-pill shadow-sm">Contact Our Engineers</a>
-        <a href="/services" class="btn btn-outline-light btn-lg fw-bold px-4 rounded-pill">Explore Services</a>
+        <a href={`${baseUrl}contact`} class="btn btn-light btn-lg fw-bold text-primary px-4 rounded-pill shadow-sm">Contact Our Engineers</a>
+        <a href={`${baseUrl}services`} class="btn btn-outline-light btn-lg fw-bold px-4 rounded-pill">Explore Services</a>
       </div>
     </div>
   </section>

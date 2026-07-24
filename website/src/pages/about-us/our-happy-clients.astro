@@ -4,41 +4,43 @@ import ClientLogoSection from '../../components/ClientLogoSection.astro';
 import Testimonials from '../../components/Testimonials.astro';
 import ContactSection from '../../components/ContactSection.astro';
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const clientsList = [
   {
     name: "Bharat Electronics Limited",
     abbr: "BEL",
-    logo: "/assets/img/client-logo/bharat-electronics.png",
+    logo: `${baseUrl}assets/img/client-logo/bharat-electronics.png`,
     description: "High-voltage 33kV electrical contracting, HT transformer installations, and power distribution systems."
   },
   {
     name: "Hindustan Aeronautics Limited",
     abbr: "HAL",
-    logo: "/assets/img/client-logo/hal.png",
+    logo: `${baseUrl}assets/img/client-logo/hal.png`,
     description: "Defense facility industrial electrical maintenance, substation operations, and infrastructure contracting."
   },
   {
     name: "HMT Limited",
     abbr: "HMT",
-    logo: "/assets/img/client-logo/hmt.png",
+    logo: `${baseUrl}assets/img/client-logo/hmt.png`,
     description: "Industrial civil construction works and high-capacity electrical distribution network setups."
   },
   {
     name: "Hitachi",
     abbr: "Hitachi",
-    logo: "/assets/img/client-logo/hitachi.png",
+    logo: `${baseUrl}assets/img/client-logo/hitachi.png`,
     description: "Commercial facility electrical contracting and turnkey solar PV rooftop EPC installations."
   },
   {
     name: "Janani Water Technologies",
     abbr: "Janani",
-    logo: "/assets/img/client-logo/janani.png",
+    logo: `${baseUrl}assets/img/client-logo/janani.png`,
     description: "Turnkey electrical contracting, power panel engineering, and facility wiring works."
   },
   {
     name: "Rosetta Hospitality",
     abbr: "Rosetta",
-    logo: "/assets/img/client-logo/rosetta-hospitality.png",
+    logo: `${baseUrl}assets/img/client-logo/rosetta-hospitality.png`,
     description: "Luxury interior architecture, structural fit-outs, aesthetic lighting, and specialized electrical execution."
   }
 ];

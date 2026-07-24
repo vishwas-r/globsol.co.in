@@ -1,28 +1,29 @@
 ---
 const { pathname } = Astro.url;
-const isHome = pathname === '/' || pathname === '';
+const baseUrl = import.meta.env.BASE_URL;
+const isHome = pathname === '/' || pathname === '' || pathname === baseUrl || pathname === baseUrl.slice(0, -1);
 ---
 
 <section 
   class="testimonial-section pt-150 pb-150 img-bg" 
-  style={isHome ? "background-image: url('/assets/img/testimonial/testimonial-bg.svg')" : "background-image: url('/assets/img/testimonial/testimonial-bg.svg'); clip-path: none !important; -webkit-clip-path: none !important;"}
+  style={isHome ? `background-image: url('${baseUrl}assets/img/testimonial/testimonial-bg.svg')` : `background-image: url('${baseUrl}assets/img/testimonial/testimonial-bg.svg'); clip-path: none !important; -webkit-clip-path: none !important;`}
 >
   <div class="container">
     <div class="row align-items-center">
       <div class="col-xl-6 col-lg-10 mx-auto">
         <div class="section-title mb-60">
           <span class="wow fadeInDown" data-wow-delay=".2s">Testimonial</span>
-          <h2 class="wow fadeInUp" data-wow-delay=".4s">What's Our Successful <br> Client Says</h2>
+          <h2 class="wow fadeInUp" data-wow-delay=".4s">What Our Clients Say</h2>
         </div>
         <div class="testimonial-logo-wrapper d-flex">
           <div class="img">
-            <img src="/assets/img/client-logo/uideck-logo.svg" alt="UIdeck">
+            <img src={`${baseUrl}assets/img/client-logo/uideck-logo.svg`} alt="UIdeck">
           </div>
           <div class="img">
-            <img src="/assets/img/client-logo/pagebulb-logo.svg" alt="Pagebulb">
+            <img src={`${baseUrl}assets/img/client-logo/pagebulb-logo.svg`} alt="Pagebulb">
           </div>
           <div class="img">
-            <img src="/assets/img/client-logo/lineicons-logo.svg" alt="LineIcons">
+            <img src={`${baseUrl}assets/img/client-logo/lineicons-logo.svg`} alt="LineIcons">
           </div>
         </div>
       </div>
@@ -32,15 +33,15 @@ const isHome = pathname === '/' || pathname === '';
             <div class="item">
               <div class="single-testimonial">
                 <div class="testimonial-img">
-                  <img src="/assets/img/testimonial/testimonial-1.png" alt="Testimonial author">
+                  <img src={`${baseUrl}assets/img/testimonial/testimonial-1.png`} alt="Testimonial author">
                 </div>
                 <div class="testimonial-content mb-35">
-                  <img src="/assets/img/testimonial/quote.svg" alt="" class="quote">
-                  <p class="pb-30">We Crafted an awesome design library matter you're buildi business presentation websit or a complex web application our design blocks can easily.</p>
+                  <img src={`${baseUrl}assets/img/testimonial/quote.svg`} alt="" class="quote">
+                  <p class="pb-30">GlobSol delivered our 33kV substation project with exceptional quality, speed, and 100% CEIG statutory compliance. Their engineering team is highly dependable.</p>
                   <div class="testimonial-info">
                     <div class="testimonial-meta">
-                      <h5>Dwsaidfn Aksdow</h5>
-                      <span>Product Designer</span>
+                      <h5>Commercial Project Director</h5>
+                      <span>Industrial Facilities</span>
                     </div>
                   </div>
                 </div>
@@ -49,15 +50,15 @@ const isHome = pathname === '/' || pathname === '';
             <div class="item">
               <div class="single-testimonial">
                 <div class="testimonial-img">
-                  <img src="/assets/img/testimonial/testimonial-1.png" alt="Testimonial author">
+                  <img src={`${baseUrl}assets/img/testimonial/testimonial-1.png`} alt="Testimonial author">
                 </div>
                 <div class="testimonial-content mb-35">
-                  <img src="/assets/img/testimonial/quote.svg" alt="" class="quote">
-                  <p class="pb-30">We Crafted an awesome design library matter you're buildi business presentation websit or a complex web application our design blocks can easily.</p>
+                  <img src={`${baseUrl}assets/img/testimonial/quote.svg`} alt="" class="quote">
+                  <p class="pb-30">Their turnkey solar PV EPC capabilities helped us transition seamlessly to clean energy while reducing operational power costs significantly.</p>
                   <div class="testimonial-info">
                     <div class="testimonial-meta">
-                      <h5>Dwsaidfn Aksdow</h5>
-                      <span>Product Designer</span>
+                      <h5>Head of Infrastructure</h5>
+                      <span>Enterprise Client</span>
                     </div>
                   </div>
                 </div>
