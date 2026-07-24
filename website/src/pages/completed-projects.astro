@@ -85,7 +85,7 @@ const completedProjects = [
                 </div>
 
                 <div>
-                  <h5 class="fw-bold fs-6 text-dark mb-3">Project Photo Gallery (Click to Expand):</h5>
+                  <h6 class="fw-bold small text-secondary mb-2">Photo Gallery</h6>
                   <div class="d-flex gap-2 flex-wrap">
                     {project.gallery.map((imgUrl, index) => (
                       <a href={imgUrl} class="glightbox rounded-3 overflow-hidden shadow-sm d-inline-block" data-gallery={project.id} title={`${project.title} - Image ${index + 1}`}>
