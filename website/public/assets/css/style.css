@@ -11,6 +11,19 @@ html, body {
   width: 100% !important;
 }
 
+/* Reusable Utility Gradients */
+.bg-gs-gradient,
+.bg-primary-gradient,
+.page-banner-gradient {
+  background: linear-gradient(135deg, #3763eb 0%, #6f58e8 100%) !important;
+}
+
+.icon-gradient-bg {
+  background: linear-gradient(135deg, #3763eb 0%, #6f58e8 100%) !important;
+  color: #ffffff !important;
+}
+
+
 /* Mobile Navbar Sticky Header Fix (< 992px) */
 @media (max-width: 991px) {
   .header.navbar-area {
@@ -61,6 +74,24 @@ html, body {
   display: inline-block;
   max-width: 100%;
   width: 100%;
+}
+
+.icon-box-lg {
+  width: 60px;
+  height: 60px;
+}
+
+.thumb-img {
+  width: 70px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.card-img-container {
+  height: 300px;
+  overflow: hidden;
+  position: relative;
 }
 
 .hero-section .hero-img .hero-main-img {
@@ -312,3 +343,85 @@ html, body {
     border: none !important;
   }
 }
+
+/* --------------------------------------------------------------------------
+   04. Inner Page Testimonial & Icon Styling Overrides
+   -------------------------------------------------------------------------- */
+
+/* Disable polygon clip-paths on inner pages while keeping background styling */
+body.inner-page .testimonial-section,
+body.inner-page .testimonial-section::before,
+body.inner-page .team-section.img-bg::before,
+body.inner-page .feature-section.img-bg::before,
+body.inner-page .subscribe-section.img-bg::before {
+  -webkit-clip-path: none !important;
+  clip-path: none !important;
+}
+
+
+/* Match icon backgrounds & icon colors to homepage primary shades (#3763eb / #6f58e8) */
+.feature-box .box-icon-style,
+.service-box-style-2 .box-icon-style,
+.single-timeline .box-icon-style,
+.icon-box-primary {
+  background: rgba(55, 99, 235, 0.1) !important;
+  color: #3763eb !important;
+  border-color: rgba(55, 99, 235, 0.2) !important;
+}
+
+.feature-box .box-icon-style i,
+.service-box-style-2 .box-icon-style i,
+.single-timeline .box-icon-style i {
+  color: #3763eb !important;
+}
+
+.feature-box:hover .box-icon-style,
+.service-box-style-2:hover .box-icon-style {
+  background: linear-gradient(135deg, #3763eb 0%, #6f58e8 100%) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+.feature-box:hover .box-icon-style i,
+.service-box-style-2:hover .box-icon-style i {
+  color: #ffffff !important;
+}
+
+/* High-contrast White CTA Buttons on Gradient Sections */
+.subscribe-section .theme-btn,
+.subscribe-section .contact-btn a,
+.page-banner-section .btn-light,
+#connect .btn-light {
+  background-color: #ffffff !important;
+  color: #3763eb !important;
+  font-weight: 700 !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.3s ease !important;
+}
+
+.subscribe-section .theme-btn:hover,
+.subscribe-section .contact-btn a:hover,
+.page-banner-section .btn-light:hover,
+#connect .btn-light:hover {
+  background-color: #f8fafc !important;
+  color: #1d4ed8 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22) !important;
+}
+
+/* Eliminate white space gaps between sections & page banners */
+.page-banner-section,
+section {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.page-banner-section + section,
+section + section {
+  margin-top: 0 !important;
+}
+
+
+
+
+

@@ -1,7 +1,12 @@
 ---
+const { pathname } = Astro.url;
+const isHome = pathname === '/' || pathname === '';
 ---
 
-<section class="testimonial-section pt-150 pb-150 img-bg" style="background-image: url('/assets/img/testimonial/testimonial-bg.svg')">
+<section 
+  class="testimonial-section pt-150 pb-150 img-bg" 
+  style={isHome ? "background-image: url('/assets/img/testimonial/testimonial-bg.svg')" : "background-image: url('/assets/img/testimonial/testimonial-bg.svg'); clip-path: none !important; -webkit-clip-path: none !important;"}
+>
   <div class="container">
     <div class="row align-items-center">
       <div class="col-xl-6 col-lg-10 mx-auto">

@@ -45,6 +45,44 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 16px;
 }
 
+/* Reusable Utility Gradients & Icon Boxes */
+.bg-gs-gradient,
+.bg-primary-gradient,
+.page-banner-gradient {
+  background: linear-gradient(135deg, #3763eb 0%, #6f58e8 100%) !important;
+}
+
+.icon-gradient-bg {
+  background: linear-gradient(135deg, #3763eb 0%, #6f58e8 100%) !important;
+  color: #ffffff !important;
+}
+
+.icon-box-md {
+  width: 55px;
+  height: 55px;
+}
+
+.icon-box-lg {
+  width: 60px;
+  height: 60px;
+}
+
+.thumb-img {
+  width: 70px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.card-img-container {
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+
 /* Buttons */
 .btn-gs-primary {
   background: linear-gradient(135deg, var(--gs-primary) 0%, var(--gs-primary-dark) 100%);
@@ -250,3 +288,33 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--gs-primary);
   transform: translateY(-3px);
 }
+
+/* Disable polygon clip-paths on all inner pages except homepage */
+body.inner-page .testimonial-section,
+body.inner-page .team-section.img-bg::before,
+body.inner-page .feature-section.img-bg::before,
+body.inner-page .subscribe-section.img-bg::before,
+body.inner-page .about-section,
+body.inner-page [style*="clip-path"],
+body.inner-page section {
+  -webkit-clip-path: none !important;
+  clip-path: none !important;
+}
+
+/* Eliminate white space gaps between sections & page banners */
+.page-banner-section,
+section {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.page-banner-section + section,
+section + section {
+  margin-top: 0 !important;
+}
+
+
+
+
+
+

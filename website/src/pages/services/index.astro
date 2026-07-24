@@ -4,14 +4,22 @@ import ServicesOverview from '../../components/ServicesOverview.astro';
 import ContactSection from '../../components/ContactSection.astro';
 ---
 
-<BaseLayout title="Our Services | GlobSol Power Pvt Ltd">
-  <section class="py-6 bg-dark text-white text-center" style="background: var(--gs-dark) !important; padding-top: 140px;">
+<BaseLayout 
+  title="Our Services | GlobSol Power Pvt Ltd"
+  description="Explore GlobSol Power's specialized engineering capabilities in Civil Construction, High-Voltage Electrical up to 33kV, and Solar PV EPC."
+>
+  <!-- Page Banner Section (Matching About Us Design) -->
+  <section class="page-banner-section py-5 bg-gs-gradient text-white text-center">
     <div class="container">
-      <span class="section-subtitle">What We Do</span>
-      <h1 class="display-4 fw-bold text-white mb-3" style="font-family: var(--font-heading);">Engineering & Contracting Solutions</h1>
-      <p class="text-secondary fs-5 max-w-xl mx-auto" style="color: #94a3b8 !important;">
-        Explore our specialized capabilities in Construction, High-Voltage Electrical, and Solar EPC.
-      </p>
+      <div class="row align-items-center">
+        <div class="col-lg-8 mx-auto">
+          <span class="badge bg-white text-primary px-3 py-2 rounded-pill fw-bold text-uppercase mb-3 shadow-sm">What We Do</span>
+          <h1 class="display-4 fw-bold text-white mb-3">Engineering & Contracting Solutions</h1>
+          <p class="lead text-white-50 max-w-xl mx-auto mb-0">
+            Explore our specialized capabilities in Civil Construction, High-Voltage Electrical (Up to 33kV), and Turnkey Solar PV EPC.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 

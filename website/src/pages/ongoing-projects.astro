@@ -49,13 +49,13 @@ const ongoingProjects = [
   description="Explore current ongoing civil construction, 33kV electrical contracting, and solar PV EPC developments managed by GlobSol Power Pvt Ltd."
 >
   <!-- Banner -->
-  <section class="page-banner-section pt-130 pb-80" style="background: linear-gradient(135deg, #1e73be 0%, #0d4b82 100%);">
-    <div class="container">
+  <section class="page-banner-section py-5 bg-gs-gradient text-white text-center">
+    <div class="container py-4">
       <div class="row">
-        <div class="col-lg-12 text-center text-white">
-          <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold text-uppercase mb-3">Under Execution</span>
+        <div class="col-lg-12">
+          <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold text-uppercase mb-3 shadow-sm">Under Execution</span>
           <h1 class="display-4 fw-bold text-white mb-3">Ongoing Projects</h1>
-          <p class="lead max-w-xl mx-auto" style="color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto;">
+          <p class="lead text-white-50 max-w-xl mx-auto mb-0">
             Active Infrastructure & Electrification Engineering Developments Across India
           </p>
         </div>
@@ -70,13 +70,12 @@ const ongoingProjects = [
         {ongoingProjects.map((project) => (
           <div class="col-lg-6 col-md-12">
             <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-white">
-              <div class="position-relative overflow-hidden" style="height: 320px;">
+              <div class="card-img-container">
                 <a href={project.cover} class="glightbox" data-gallery={project.id} title={project.title}>
                   <img 
                     src={project.cover} 
                     alt={project.title} 
                     class="w-100 h-100 object-fit-cover transition-all" 
-                    style="object-fit: cover;"
                   />
                 </a>
                 <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill shadow-sm fw-bold">
@@ -95,7 +94,7 @@ const ongoingProjects = [
                   <div class="d-flex gap-2 flex-wrap">
                     {project.gallery.map((imgUrl, index) => (
                       <a href={imgUrl} class="glightbox rounded-3 overflow-hidden shadow-sm d-inline-block" data-gallery={project.id} title={`${project.title} - Photo ${index + 1}`}>
-                        <img src={imgUrl} alt={`${project.title} gallery thumbnail ${index + 1}`} style="width: 70px; height: 55px; object-fit: cover; border-radius: 6px;" />
+                        <img src={imgUrl} alt={`${project.title} gallery thumbnail ${index + 1}`} class="thumb-img" />
                       </a>
                     ))}
                   </div>
@@ -105,6 +104,7 @@ const ongoingProjects = [
           </div>
         ))}
       </div>
+
     </div>
   </section>
 

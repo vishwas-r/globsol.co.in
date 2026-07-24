@@ -16,6 +16,7 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://globsol.co.in");
+const isHome = Astro.url.pathname === "/" || Astro.url.pathname === "";
 ---
 
 <!DOCTYPE html>
@@ -61,7 +62,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://globsol.
     gtag('config', 'G-EJ0Q6WVL43');
   </script>
 </head>
-<body>
+<body class={isHome ? "home-page" : "inner-page"}>
   <!-- Preloader -->
   <div class="preloader">
     <div class="loader">
