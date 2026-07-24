@@ -20,20 +20,6 @@ const completedProjects = [
       `${baseUrl}assets/img/projects/janani-water-technologies/gallery-4.jpg`,
       `${baseUrl}assets/img/projects/janani-water-technologies/gallery-5.jpg`
     ]
-  },
-  {
-    id: "33kv-substation-power-distribution",
-    title: "33kV Substation & High Voltage Infrastructure",
-    category: "Class 1 Electrical Contracting (33kV)",
-    date: "Completed Dec 2023",
-    cover: `${baseUrl}assets/img/projects/janani-water-technologies/gallery-1.jpg`,
-    description: "Turnkey erection and commissioning of 33kV outdoor step-down transformers, HT/LT cable trenching, switchgear panel setup, and CEIG statutory inspection clearance.",
-    gallery: [
-      `${baseUrl}assets/img/projects/janani-water-technologies/gallery-1.jpg`,
-      `${baseUrl}assets/img/projects/janani-water-technologies/gallery-2.jpg`,
-      `${baseUrl}assets/img/projects/janani-water-technologies/gallery-3.jpg`,
-      `${baseUrl}assets/img/projects/janani-water-technologies/gallery-4.jpg`
-    ]
   }
 ];
 ---
@@ -60,11 +46,11 @@ const completedProjects = [
   <!-- Projects Grid -->
   <section class="py-5 bg-light">
     <div class="container">
-      <div class="row g-4">
+      <div class="row g-4 justify-content-center">
         {completedProjects.map((project) => (
-          <div class="col-lg-6 col-md-12">
+          <div class="col-lg-8 col-md-10">
             <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-white">
-              <div class="card-img-container">
+              <div class="card-img-container" style="max-height: 420px;">
                 <a href={project.cover} class="glightbox" data-gallery={project.id} title={project.title}>
                   <img 
                     src={project.cover} 
