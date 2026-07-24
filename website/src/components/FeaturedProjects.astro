@@ -1,31 +1,33 @@
 ---
+const baseUrl = import.meta.env.BASE_URL;
+
 const projects = [
   {
     title: "M/s Janani Water Technologies Pvt Ltd",
-    category: "Electrical & Civil",
+    category: "Electrical Contracting & Panels",
     tag: "Completed",
-    image: "https://globsol.co.in/wp-content/uploads/2019/02/bridge-808-by-462.png",
+    image: `${baseUrl}assets/img/projects/janani-water-technologies/cover.jpg`,
     gridClass: "col-lg-8 col-md-12"
   },
   {
     title: "Commercial Solar Rooftop Installation",
     category: "Solar EPC",
     tag: "Completed",
-    image: "https://globsol.co.in/wp-content/uploads/2023/12/solar-panel-install.jpg",
+    image: `${baseUrl}assets/img/projects/janani-water-technologies/gallery-1.jpg`,
     gridClass: "col-lg-4 col-md-6"
   },
   {
     title: "High Voltage Sub-Station (up to 33kV)",
     category: "Electrical Contracting",
     tag: "Ongoing",
-    image: "https://globsol.co.in/wp-content/uploads/2019/02/bridge-808-by-462.png",
+    image: `${baseUrl}assets/img/projects/janani-water-technologies/gallery-2.jpg`,
     gridClass: "col-lg-4 col-md-6"
   },
   {
-    title: "Corporate Headquarters Interior Renovation",
-    category: "Construction & Interior",
+    title: "Industrial Logistics & Technical Manpower Deployment",
+    category: "Logistics & Manpower",
     tag: "Completed",
-    image: "https://globsol.co.in/wp-content/uploads/2023/12/solar-panel-install.jpg",
+    image: `${baseUrl}assets/img/projects/janani-water-technologies/gallery-3.jpg`,
     gridClass: "col-lg-8 col-md-12"
   }
 ];
@@ -39,7 +41,7 @@ const projects = [
         <h2 class="section-title mb-0">Featured Engineering & Solar Projects</h2>
       </div>
       <div class="mt-3 mt-md-0">
-        <a href="/completed-projects/" class="btn btn-gs-outline border-dark text-dark px-4 py-2.5">
+        <a href={`${baseUrl}completed-projects`} class="btn btn-gs-outline border-dark text-dark px-4 py-2.5">
           View All Projects
         </a>
       </div>
