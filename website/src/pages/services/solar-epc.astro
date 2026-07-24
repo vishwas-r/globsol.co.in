@@ -3,17 +3,41 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactSection from '../../components/ContactSection.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
+
+const capabilities = [
+  {
+    title: "1. Solar Engineering & Design",
+    icon: "lni-sun",
+    description: "Custom PV array layout design, shadow analysis, string sizing, structural weight capacity audit, and yield estimation."
+  },
+  {
+    title: "2. Tier-1 Component Procurement",
+    icon: "lni-cog",
+    description: "Sourcing Tier-1 mono-PERC solar panels, high-efficiency central/string inverters, aluminum mounting structures, and DC cabling."
+  },
+  {
+    title: "3. Turnkey Installation & Grid Sync",
+    icon: "lni-bolt",
+    description: "Rooftop and ground-mount structural installation, electrical wiring, bi-directional net metering approvals, and grid sync."
+  },
+  {
+    title: "4. Operations & Maintenance (O&M)",
+    icon: "lni-stats-up",
+    description: "Long-term plant monitoring, automated panel cleaning schedule, inverter servicing, and yield optimization support."
+  }
+];
 ---
 
 <BaseLayout 
   title="Turnkey Solar PV EPC Solutions | GlobSol Power Pvt Ltd"
   description="Turnkey solar engineering, procurement, and construction (EPC) for rooftop & ground-mounted solar power plants (on-grid & off-grid)."
 >
+  <!-- Page Banner Section -->
   <section class="page-banner-section py-5 bg-gs-gradient text-white text-center">
-    <div class="container py-4">
-      <div class="row">
-        <div class="col-lg-12">
-          <span class="badge bg-white text-primary px-3 py-2 rounded-pill fw-bold text-uppercase mb-3 shadow-sm">Solar EPC</span>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8 mx-auto">
+          <span class="badge bg-white text-primary px-3 py-2 rounded-pill fw-bold text-uppercase mb-3 shadow-sm">Solar EPC Solutions</span>
           <h1 class="display-4 fw-bold text-white mb-3">Turnkey Solar PV EPC Solutions</h1>
           <p class="lead text-white-50 max-w-xl mx-auto mb-0">
             End-to-End Rooftop & Ground-Mounted Solar Power Plants across India.
@@ -23,45 +47,74 @@ const baseUrl = import.meta.env.BASE_URL;
     </div>
   </section>
 
-  <section class="py-5 bg-white">
-    <div class="container py-4">
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
-          <p class="fs-5 text-secondary mb-5">
-            From initial solar radiation assessment to net-metering synchronization, GlobSol delivers comprehensive Solar PV EPC (Engineering, Procurement, and Construction) solutions for commercial, industrial, and institutional clients.
-          </p>
+  <!-- Core Capabilities Section -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 col-lg-10 mx-auto text-center">
+          <div class="section-title text-center mb-5">
+            <span class="wow fadeInUp" data-wow-delay=".2s">Turnkey Execution</span>
+            <h2 class="mb-3 wow fadeInUp" data-wow-delay=".4s">Our Solar Engineering Scope</h2>
+            <p class="wow fadeInUp text-secondary" data-wow-delay=".5s">From initial solar radiation assessment to net-metering synchronization, GlobSol delivers comprehensive Solar PV EPC solutions for commercial, industrial, and institutional clients.</p>
+          </div>
+        </div>
+      </div>
 
-          <div class="row g-4 mb-5">
-            <div class="col-md-6">
-              <div class="p-4 rounded-3 border bg-light h-100">
-                <h4 class="h5 fw-bold text-primary mb-2">1. Solar Engineering & Design</h4>
-                <p class="text-secondary mb-0">Custom PV array layout design, shadow analysis, string sizing, structural weight capacity audit, and yield estimation.</p>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="p-4 rounded-3 border bg-light h-100">
-                <h4 class="h5 fw-bold text-primary mb-2">2. Procurement & Quality Tier-1 Components</h4>
-                <p class="text-secondary mb-0">Sourcing Tier-1 mono-PERC solar panels, high-efficiency central/string inverters, aluminum mounting structures, and DC cabling.</p>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="p-4 rounded-3 border bg-light h-100">
-                <h4 class="h5 fw-bold text-primary mb-2">3. Turnkey Installation & Grid Synchronization</h4>
-                <p class="text-secondary mb-0">Rooftop and ground-mount structural installation, electrical wiring, bi-directional net metering approvals, and grid sync.</p>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="p-4 rounded-3 border bg-light h-100">
-                <h4 class="h5 fw-bold text-primary mb-2">4. Operations & Maintenance (O&M)</h4>
-                <p class="text-secondary mb-0">Long-term plant monitoring, automated panel cleaning schedule, inverter servicing, and yield optimization support.</p>
+      <div class="row g-4">
+        {capabilities.map((cap, index) => (
+          <div class="col-md-6">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100 wow fadeInUp" data-wow-delay={`${0.2 * (index + 1)}s`}>
+              <div class="row align-items-center g-3">
+                <div class="col-auto">
+                  <div class="rounded-circle text-white d-flex align-items-center justify-content-center shadow-sm" style="width: 52px; height: 52px; background: linear-gradient(135deg, #3763eb 0%, #6f58e8 100%);">
+                    <i class={`lni ${cap.icon} fs-4`}></i>
+                  </div>
+                </div>
+                <div class="col">
+                  <h4 class="h5 fw-bold text-dark mb-1">{cap.title}</h4>
+                  <p class="text-secondary mb-0 small">{cap.description}</p>
+                </div>
               </div>
             </div>
           </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-          <div class="p-4 rounded-3 text-center text-white mb-5 bg-gs-gradient">
-            <h4 class="text-white fw-bold mb-2">Ready to Transition to Clean Solar Energy?</h4>
-            <p class="fs-6 mb-3 opacity-90">Reduce power bills and footprint with GlobSol's turnkey Solar PV EPC.</p>
-            <a href={`${baseUrl}contact`} class="btn btn-light fw-bold text-primary px-4 py-2 rounded-pill">Request Solar Site Audit</a>
+  <!-- Impact Highlights Section -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-6 col-lg-7 col-md-9 mx-auto">
+          <div class="section-title text-center mb-5">
+            <span class="wow fadeInDown" data-wow-delay=".2s">Key Advantages</span>
+            <h2 class="wow fadeInUp" data-wow-delay=".4s">Why Choose GlobSol Solar EPC?</h2>
+            <p class="wow fadeInUp text-secondary" data-wow-delay=".6s">Maximizing clean energy yield with turnkey statutory and engineering precision.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-4 col-md-6">
+          <div class="p-4 p-lg-5 text-center text-white rounded-4 shadow-sm h-100 bg-gs-gradient">
+            <h3 class="display-4 fw-bold text-white mb-2">Megawatt</h3>
+            <h4 class="h5 text-white fw-bold mb-2">Scale Capabilities</h4>
+            <p class="small text-white-50 mb-0">Roof-mounted & Ground-mounted Solar PV Installations</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="p-4 p-lg-5 text-center text-white rounded-4 shadow-sm h-100 bg-gs-gradient">
+            <h3 class="display-4 fw-bold text-white mb-2">On / Off</h3>
+            <h4 class="h5 text-white fw-bold mb-2">Grid Synchronization</h4>
+            <p class="small text-white-50 mb-0">Bi-Directional Net-Metering & Hybrid Battery Storage Systems</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="p-4 p-lg-5 text-center text-white rounded-4 shadow-sm h-100 bg-gs-gradient">
+            <h3 class="display-4 fw-bold text-white mb-2">25 Years</h3>
+            <h4 class="h5 text-white fw-bold mb-2">Panel Performance Warranty</h4>
+            <p class="small text-white-50 mb-0">Tier-1 Components & Long-term Yield Optimization</p>
           </div>
         </div>
       </div>

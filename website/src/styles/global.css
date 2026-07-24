@@ -313,6 +313,20 @@ section + section {
   margin-top: 0 !important;
 }
 
+/* Ensure Page Banner Section clears fixed header navbar on mobile & desktop */
+.page-banner-section {
+  padding-top: 130px !important;
+  padding-bottom: 60px !important;
+}
+
+@media (max-width: 991px) {
+  .page-banner-section {
+    padding-top: 120px !important;
+    padding-bottom: 50px !important;
+  }
+}
+
+
 
 
 
