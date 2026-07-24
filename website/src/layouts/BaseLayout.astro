@@ -1,0 +1,159 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import ScrollToTop from '../components/ScrollToTop.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = "GlobSol Power Pvt Ltd | Construction, Electrical & Solar EPC",
+  description = "Elevate projects with GlobSol's civil construction, interior design, electrical contracting up to 33kV, and turnkey solar PV EPC solutions across India.",
+  image = "/assets/img/logo/logo.png"
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://globsol.co.in");
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/img/logo/logo.png" />
+  
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+  
+  <!-- Space Theme CSS -->
+  <link rel="stylesheet" href="/assets/css/bootstrap-5.0.0-alpha.min.css" />
+  <link rel="stylesheet" href="/assets/css/LineIcons.2.0.css" />
+  <link rel="stylesheet" href="/assets/css/animate.css" />
+  <link rel="stylesheet" href="/assets/css/tiny-slider.css" />
+  <link rel="stylesheet" href="/assets/css/glightbox.min.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GlobSol Power Pvt Ltd" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={image} />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content={image} />
+
+  <!-- Google Tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJ0Q6WVL43"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-EJ0Q6WVL43');
+  </script>
+</head>
+<body>
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="loader">
+      <div class="ytp-spinner">
+        <div class="ytp-spinner-container">
+          <div class="ytp-spinner-rotator">
+            <div class="ytp-spinner-left">
+              <div class="ytp-spinner-circle"></div>
+            </div>
+            <div class="ytp-spinner-right">
+              <div class="ytp-spinner-circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Navbar />
+  
+  <main>
+    <slot />
+  </main>
+  
+  <Footer />
+  
+  <ScrollToTop />
+
+  <!-- Vendor JS Files -->
+  <script is:inline src="/assets/js/bootstrap.bundle-5.0.0.alpha-min.js"></script>
+  <script is:inline src="/assets/js/contact-form.js"></script>
+  <script is:inline src="/assets/js/count-up.min.js"></script>
+  <script is:inline src="/assets/js/tiny-slider.js"></script>
+  <script is:inline src="/assets/js/isotope.min.js"></script>
+  <script is:inline src="/assets/js/glightbox.min.js"></script>
+  <script is:inline src="/assets/js/wow.min.js"></script>
+  <script is:inline src="/assets/js/imagesloaded.min.js"></script>
+  <script is:inline src="/assets/js/main.js"></script>
+
+  <script is:inline>
+    // ========= GLightbox
+    if (typeof GLightbox !== 'undefined') {
+      GLightbox({
+        'href': 'https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM',
+        'type': 'video',
+        'source': 'youtube',
+        'width': 900,
+        'autoplayVideos': true,
+      });
+    }
+
+    // ========= Testimonial Slider
+    if (typeof tns !== 'undefined' && document.querySelector('.testimonial-active')) {
+      tns({
+        container: '.testimonial-active',
+        items: 1,
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        nav: false,
+        controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+      });
+    }
+
+    // ========= Isotope Masonry
+    if (typeof imagesLoaded !== 'undefined' && document.querySelector('#container')) {
+      imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        if (elem && typeof Isotope !== 'undefined') {
+          var iso = new Isotope(elem, {
+            itemSelector: '.grid-item',
+            masonry: {
+              columnWidth: '.grid-item'
+            }
+          });
+
+          let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+          filterButtons.forEach(e => {
+            e.addEventListener('click', (event) => {
+              filterButtons.forEach(b => b.classList.remove('active'));
+              event.target.classList.add('active');
+              let filterValue = event.target.getAttribute('data-filter');
+              iso.arrange({
+                filter: filterValue
+              });
+            });
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,52 @@
+---
+const values = [
+  { title: "Integrity & Ethics", desc: "Honesty and transparent communication across every project interaction and contract." },
+  { title: "Technical Excellence", desc: "Precision engineering executed by experienced certified civil & electrical professionals." },
+  { title: "Collaborative Approach", desc: "Partnering closely with clients, architects, and suppliers to deliver on time and budget." },
+  { title: "Sustainable Innovation", desc: "Adopting cutting-edge solar technologies and green building standards." }
+];
+---
+
+<section class="py-6 py-lg-7 bg-white">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="section-subtitle">Why Partner With Us</span>
+        <h2 class="section-title mb-4">Driving Quality, Safety & Reliability in Every Build</h2>
+        <p class="text-secondary mb-4 fs-6">
+          With a proven track record of 3+ years in multi-disciplinary contracting, GlobSol brings together technical precision, high-voltage capability, and sustainable energy solutions under one roof.
+        </p>
+
+        <div class="row g-4">
+          {values.map((item) => (
+            <div class="col-sm-6">
+              <div class="d-flex gap-3">
+                <div class="rounded-circle p-2 d-flex align-items-center justify-content-center flex-shrink-0" style="width: 36px; height: 36px; background: rgba(245, 158, 11, 0.15); color: var(--gs-accent);">
+                  <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg>
+                </div>
+                <div>
+                  <h6 class="fw-bold mb-1" style="font-family: var(--font-heading);">{item.title}</h6>
+                  <p class="small text-secondary mb-0" style="line-height: 1.5;">{item.desc}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-5">
+          <a href="/about-us/" class="btn btn-gs-primary px-4 py-2.5">Discover Our Story</a>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="position-relative">
+          <div class="rounded-4 overflow-hidden shadow-lg" style="height: 420px; background: url('https://globsol.co.in/wp-content/uploads/2019/02/bridge-808-by-462.png') center/cover no-repeat;"></div>
+          <div class="position-absolute bottom-0 start-0 m-4 p-4 glass-card-light rounded-4 shadow-lg max-w-xs d-none d-sm-block">
+            <h5 class="fw-bold mb-1" style="color: var(--gs-primary);">100% Quality Assurance</h5>
+            <p class="small text-secondary mb-0">Certified safety protocols & ISO standard execution on all sites.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

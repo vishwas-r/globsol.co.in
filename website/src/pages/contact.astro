@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact Us | GlobSol Power Pvt Ltd">
+  <section class="py-6 bg-dark text-white text-center" style="background: var(--gs-dark) !important; padding-top: 140px;">
+    <div class="container">
+      <span class="section-subtitle">Get In Touch</span>
+      <h1 class="display-4 fw-bold text-white mb-3" style="font-family: var(--font-heading);">Contact GlobSol</h1>
+      <p class="text-secondary fs-5 max-w-xl mx-auto" style="color: #94a3b8 !important;">
+        Have a civil, electrical, or solar project in mind? Reach out to our engineering team.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-6 bg-white">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-5">
+          <h3 class="fw-bold mb-4" style="font-family: var(--font-heading);">Let's Build Something Great</h3>
+          <p class="text-secondary mb-4">
+            Fill out the form or reach us directly via email. We respond to all inquiries within 24 business hours.
+          </p>
+
+          <div class="d-flex flex-column gap-3 mb-4">
+            <div class="d-flex align-items-center gap-3">
+              <div class="rounded-circle p-3 bg-light text-primary">
+                <svg width="20" height="20" fill="var(--gs-primary)" viewBox="0 0 16 16"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2z"/></svg>
+              </div>
+              <div>
+                <span class="small text-muted d-block">Email Us</span>
+                <a href="mailto:info@globsol.co.in" class="fw-bold text-dark text-decoration-none">info@globsol.co.in</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="p-4 p-md-5 rounded-4 shadow-sm border bg-white">
+            <h4 class="fw-bold mb-4" style="font-family: var(--font-heading);">Request a Free Project Quote</h4>
+            
+            <!-- Formspree Endpoint Form -->
+            <form action="https://formspree.io/f/xbjnqkyz" method="POST">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Your Name *</label>
+                  <input type="text" name="name" class="form-control py-2.5" placeholder="John Doe" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Email Address *</label>
+                  <input type="email" name="email" class="form-control py-2.5" placeholder="john@company.com" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Phone Number</label>
+                  <input type="tel" name="phone" class="form-control py-2.5" placeholder="+91 98765 43210" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Service Required</label>
+                  <select name="service" class="form-select py-2.5">
+                    <option value="Solar EPC">Solar EPC Solutions</option>
+                    <option value="Electrical Contractor">Electrical Contractor (Up to 33kV)</option>
+                    <option value="Construction & Interior">Construction & Interior Design</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label small fw-semibold">Project Details / Message *</label>
+                  <textarea name="message" rows="4" class="form-control" placeholder="Tell us about your project requirements..." required></textarea>
+                </div>
+                <div class="col-12 mt-4">
+                  <button type="submit" class="btn btn-gs-accent btn-lg w-100 py-3">
+                    Submit Inquiry
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

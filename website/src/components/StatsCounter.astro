@@ -1,0 +1,29 @@
+---
+// Stats Counter Component
+const stats = [
+  { value: "3+", label: "Years Experience", icon: "M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" },
+  { value: "50+", label: "Projects Completed", icon: "M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3" },
+  { value: "100+", label: "Happy Clients", icon: "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" },
+  { value: "5+ MW", label: "Solar Energy Installed", icon: "M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" }
+];
+---
+
+<section class="py-5 text-white position-relative" style="background: var(--gs-dark-card); border-bottom: 1px solid rgba(255,255,255,0.08);">
+  <div class="container">
+    <div class="row g-4 text-center">
+      {stats.map((stat) => (
+        <div class="col-6 col-md-3">
+          <div class="p-3 rounded-4 glass-card h-100 d-flex flex-column align-items-center justify-content-center">
+            <div class="rounded-circle p-3 mb-3 d-flex align-items-center justify-content-center" style="background: rgba(245, 158, 11, 0.15); color: var(--gs-accent);">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d={stat.icon}></path>
+              </svg>
+            </div>
+            <h2 class="display-6 fw-bold mb-1 text-white" style="font-family: var(--font-heading);">{stat.value}</h2>
+            <p class="small text-secondary mb-0 fw-medium" style="color: #94a3b8 !important;">{stat.label}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

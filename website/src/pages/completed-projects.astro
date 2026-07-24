@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FeaturedProjects from '../components/FeaturedProjects.astro';
+import ContactSection from '../components/ContactSection.astro';
+---
+
+<BaseLayout title="Completed Projects | GlobSol Power Pvt Ltd">
+  <section class="py-6 bg-dark text-white text-center" style="background: var(--gs-dark) !important; padding-top: 140px;">
+    <div class="container">
+      <span class="section-subtitle">Our Track Record</span>
+      <h1 class="display-4 fw-bold text-white mb-3" style="font-family: var(--font-heading);">Completed Projects</h1>
+      <p class="text-secondary fs-5 max-w-xl mx-auto" style="color: #94a3b8 !important;">
+        Delivered with technical accuracy, safety compliance, and client satisfaction.
+      </p>
+    </div>
+  </section>
+
+  <FeaturedProjects />
+  <ContactSection />
+</BaseLayout>

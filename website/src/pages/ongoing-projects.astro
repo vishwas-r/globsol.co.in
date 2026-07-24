@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactSection from '../components/ContactSection.astro';
+---
+
+<BaseLayout 
+  title="Ongoing Projects | GlobSol Power Pvt Ltd"
+  description="Current ongoing civil construction, 33kV electrical contracting, and solar PV EPC projects."
+>
+  <section class="page-banner-section pt-130 pb-80" style="background: linear-gradient(135deg, #1e73be 0%, #0d4b82 100%);">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center text-white">
+          <span class="text-white-50 text-uppercase fw-bold tracking-wider">Projects</span>
+          <h1 class="display-4 fw-bold text-white mt-2 mb-3">Ongoing Projects</h1>
+          <p class="lead max-w-xl mx-auto opacity-90" style="max-width: 700px; margin: 0 auto;">
+            Active Infrastructure & Electrification Engineering Developments Across India
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white">
+    <div class="container py-4">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="p-4 p-md-5 rounded-4 shadow-sm bg-light text-center mb-5">
+            <h3 class="h4 fw-bold text-primary mb-3">Active Infrastructure Developments</h3>
+            <p class="text-secondary max-w-xl mx-auto mb-4">
+              Our engineering teams are currently executing high-voltage substation commissioning, commercial civil developments, and turnkey solar installations with uncompromised adherence to safety and schedules.
+            </p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+              <a href="/completed-projects" class="btn btn-outline-primary fw-bold px-4 py-2 rounded-pill">View Completed Works</a>
+              <a href="/contact" class="btn btn-primary fw-bold px-4 py-2 rounded-pill">Inquire for New Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ContactSection />
+</BaseLayout>

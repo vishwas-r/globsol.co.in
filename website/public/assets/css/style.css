@@ -1,0 +1,314 @@
+/* ==========================================================================
+   GlobSol Power Pvt Ltd - Custom Stylesheet
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   00. Global Layout & Mobile Overflow Prevention
+   -------------------------------------------------------------------------- */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+}
+
+/* Mobile Navbar Sticky Header Fix (< 992px) */
+@media (max-width: 991px) {
+  .header.navbar-area {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08) !important;
+  }
+
+  .header.navbar-area .navbar {
+    padding: 10px 0 !important;
+  }
+
+  .navbar-collapse {
+    background: #ffffff !important;
+    padding: 15px 20px !important;
+    border-radius: 0 0 10px 10px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   01. Hero Section Customizations
+   -------------------------------------------------------------------------- */
+
+/* Reduce excessive vertical padding in hero section */
+.hero-section .hero-content-wrapper {
+  padding-top: 130px;
+  padding-bottom: 40px !important;
+}
+
+/* Unclip hero image by using relative in-grid container positioning */
+.hero-section .hero-img {
+  position: relative !important;
+  top: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  text-align: right;
+  margin-top: 20px;
+}
+
+.hero-section .hero-img .hero-img-right {
+  position: relative !important;
+  display: inline-block;
+  max-width: 100%;
+  width: 100%;
+}
+
+.hero-section .hero-img .hero-main-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Position dots shape and play icon inside the image (to the left inside) */
+.hero-section .hero-img img.dot-shape {
+  position: absolute !important;
+  left: 20px !important;
+  bottom: 20px !important;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.hero-section .hero-img .video-btn {
+  position: absolute !important;
+  left: 30px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 2;
+}
+
+/* Hero Section Mobile Styles (< 992px) */
+@media (max-width: 991px) {
+  .hero-section {
+    padding-top: 80px;
+  }
+  .hero-section .hero-content-wrapper {
+    padding: 40px 0 20px !important;
+    text-align: center;
+  }
+  .hero-section .hero-content-wrapper h1 {
+    font-size: 32px !important;
+    line-height: 42px !important;
+    margin-bottom: 15px !important;
+  }
+  .hero-section .hero-content-wrapper h2 {
+    font-size: 20px !important;
+    line-height: 30px !important;
+  }
+  .hero-section .hero-content-wrapper p {
+    font-size: 16px !important;
+    line-height: 24px !important;
+    margin-bottom: 25px !important;
+  }
+  .hero-section .hero-img {
+    position: relative !important;
+    right: auto !important;
+    top: 0 !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin: 10px 0 30px !important;
+    overflow: hidden;
+  }
+  .hero-section .hero-img .hero-img-right {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+  .hero-section .hero-img .hero-main-img {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 500px !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  .hero-section .hero-img img.dot-shape {
+    display: none !important;
+  }
+  .hero-section .hero-img .video-btn {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   02. Client Logo Section Customizations
+   -------------------------------------------------------------------------- */
+
+.client-logo-section {
+  padding-top: 20px !important;
+  padding-bottom: 40px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+.client-logo-section .client-logo-carousel {
+  display: flex;
+  align-items: flex-end; /* Align the bottom of all logos in 1 line */
+  justify-content: space-between;
+  width: 100%;
+}
+
+.client-logo-section .client-logo-wrapper .client-logo-carousel .client-logo {
+  padding: 10px 15px;
+  display: flex;
+  align-items: flex-end; /* Align bottom */
+  justify-content: center;
+}
+
+.client-logo-section .client-logo-wrapper .client-logo-carousel .client-logo img {
+  max-height: 44px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+  vertical-align: bottom;
+}
+
+.client-logo-section .client-logo-wrapper .client-logo-carousel .client-logo img:hover {
+  opacity: 1;
+}
+
+/* Mobile Devices (< 992px): Show 2 logos at a time & smooth horizontal touch scroll */
+@media (max-width: 991px) {
+  .client-logo-section {
+    padding-top: 15px !important;
+    padding-bottom: 25px !important;
+  }
+
+  .client-logo-section .client-logo-wrapper {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-snap-type: x mandatory !important;
+    scrollbar-width: none !important; /* Hide scrollbar Firefox */
+    -ms-overflow-style: none !important; /* Hide scrollbar IE/Edge */
+    padding: 10px 0 !important;
+  }
+
+  .client-logo-section .client-logo-wrapper::-webkit-scrollbar {
+    display: none !important; /* Hide scrollbar Chrome/Safari */
+  }
+
+  .client-logo-section .client-logo-carousel {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-end !important; /* Bottom aligned in 1 line! */
+    justify-content: flex-start !important;
+    width: max-content !important;
+    gap: 0 !important;
+  }
+
+  .client-logo-section .client-logo-wrapper .client-logo-carousel .client-logo {
+    flex: 0 0 45vw !important; /* Exactly 2 logos visible at a time */
+    max-width: 45vw !important;
+    scroll-snap-align: center !important;
+    padding: 5px 15px !important;
+    display: flex !important;
+    align-items: flex-end !important; /* Bottom aligned! */
+    justify-content: center !important;
+    height: 48px !important;
+  }
+
+  .client-logo-section .client-logo-wrapper .client-logo-carousel .client-logo img {
+    max-height: 38px !important;
+    max-width: 85% !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    vertical-align: bottom !important;
+    display: block !important;
+  }
+/* --------------------------------------------------------------------------
+   03. About Us Section Customizations
+   -------------------------------------------------------------------------- */
+
+.about-section .about-img-wrapper img {
+  max-height: 440px !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  border-radius: 20px !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important;
+}
+
+.about-section .about-img-wrapper .about-experience {
+  width: 250px !important;
+  padding: 25px 20px !important;
+  border-radius: 18px !important;
+  right: -20px !important;
+  bottom: -20px !important;
+  border: 4px solid #eff2f9 !important;
+}
+
+.about-section .about-img-wrapper .about-experience h3 {
+  font-size: 22px !important;
+  line-height: 28px !important;
+  margin-bottom: 10px !important;
+}
+
+.about-section .about-img-wrapper .about-experience p {
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+
+@media (max-width: 991px) {
+  .about-section {
+    padding: 60px 0 !important;
+  }
+
+  .about-section .about-img-wrapper {
+    position: relative !important;
+    top: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    margin-bottom: 35px !important;
+    text-align: center !important;
+  }
+
+  .about-section .about-img-wrapper .about-img {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .about-section .about-img-wrapper img {
+    max-height: 320px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    border-radius: 16px !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+
+  .about-section .about-img-wrapper .about-experience {
+    position: relative !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 15px !important;
+    padding: 20px 22px !important;
+    border-radius: 14px !important;
+    text-align: left !important;
+    display: block !important;
+    border: none !important;
+  }
+}

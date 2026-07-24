@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ClientLogoSection from '../../components/ClientLogoSection.astro';
+import Testimonials from '../../components/Testimonials.astro';
+---
+
+<BaseLayout 
+  title="Our Happy Clients | GlobSol Power Pvt Ltd"
+  description="Trusted by Bharat Electronics, HAL, HMT, Hitachi, Seonics, Janani, and Rosetta Hospitality."
+>
+  <section class="page-banner-section pt-130 pb-80" style="background: linear-gradient(135deg, #1e73be 0%, #0d4b82 100%);">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center text-white">
+          <span class="text-white-50 text-uppercase fw-bold tracking-wider">About Us</span>
+          <h1 class="display-4 fw-bold text-white mt-2 mb-3">Our Happy Clients</h1>
+          <p class="lead max-w-xl mx-auto opacity-90" style="max-width: 700px; margin: 0 auto;">
+            Building Long-Lasting Partnerships Across Government Defense Undertakings & Premier Corporations
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ClientLogoSection />
+
+  <section class="py-5 bg-light">
+    <div class="container py-4">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="text-center mb-5">
+            <span class="text-primary fw-bold text-uppercase">Client Trust</span>
+            <h2 class="h3 fw-bold mt-2">Valued Industry Partners</h2>
+            <p class="text-secondary max-w-xl mx-auto">
+              Having successfully served renowned public sector undertakings and leading commercial enterprises, we have earned high appreciation for our commitment to excellence, precision execution, and reliable post-project support.
+            </p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+              <div class="p-4 bg-white rounded-4 shadow-sm h-100 text-center">
+                <img src="/assets/img/client-logo/bharat-electronics.png" alt="Bharat Electronics Limited" style="max-height: 45px;" class="mb-3">
+                <h5 class="fw-bold fs-6">Bharat Electronics Limited</h5>
+                <p class="text-secondary small mb-0">High-voltage 33kV electrical contracting & substation works.</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="p-4 bg-white rounded-4 shadow-sm h-100 text-center">
+                <img src="/assets/img/client-logo/hal.png" alt="Hindustan Aeronautics Limited" style="max-height: 45px;" class="mb-3">
+                <h5 class="fw-bold fs-6">Hindustan Aeronautics Limited</h5>
+                <p class="text-secondary small mb-0">Industrial electrical maintenance and infrastructure contracting.</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="p-4 bg-white rounded-4 shadow-sm h-100 text-center">
+                <img src="/assets/img/client-logo/hmt.png" alt="HMT Limited" style="max-height: 45px;" class="mb-3">
+                <h5 class="fw-bold fs-6">HMT Limited</h5>
+                <p class="text-secondary small mb-0">Civil construction & electrical distribution projects.</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="p-4 bg-white rounded-4 shadow-sm h-100 text-center">
+                <img src="/assets/img/client-logo/hitachi.png" alt="Hitachi" style="max-height: 45px;" class="mb-3">
+                <h5 class="fw-bold fs-6">Hitachi</h5>
+                <p class="text-secondary small mb-0">Commercial electrical & solar PV EPC installations.</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="p-4 bg-white rounded-4 shadow-sm h-100 text-center">
+                <img src="/assets/img/client-logo/janani.png" alt="Janani Water Technologies" style="max-height: 45px;" class="mb-3">
+                <h5 class="fw-bold fs-6">Janani Water Technologies</h5>
+                <p class="text-secondary small mb-0">Turnkey electrical contracting & power installations.</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="p-4 bg-white rounded-4 shadow-sm h-100 text-center">
+                <img src="/assets/img/client-logo/rosetta-hospitality.png" alt="Rosetta Hospitality" style="max-height: 45px;" class="mb-3">
+                <h5 class="fw-bold fs-6">Rosetta Hospitality</h5>
+                <p class="text-secondary small mb-0">Luxury interior architecture, fit-outs & electrical execution.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Testimonials />
+</BaseLayout>

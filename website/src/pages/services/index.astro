@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServicesOverview from '../../components/ServicesOverview.astro';
+import ContactSection from '../../components/ContactSection.astro';
+---
+
+<BaseLayout title="Our Services | GlobSol Power Pvt Ltd">
+  <section class="py-6 bg-dark text-white text-center" style="background: var(--gs-dark) !important; padding-top: 140px;">
+    <div class="container">
+      <span class="section-subtitle">What We Do</span>
+      <h1 class="display-4 fw-bold text-white mb-3" style="font-family: var(--font-heading);">Engineering & Contracting Solutions</h1>
+      <p class="text-secondary fs-5 max-w-xl mx-auto" style="color: #94a3b8 !important;">
+        Explore our specialized capabilities in Construction, High-Voltage Electrical, and Solar EPC.
+      </p>
+    </div>
+  </section>
+
+  <ServicesOverview />
+  <ContactSection />
+</BaseLayout>

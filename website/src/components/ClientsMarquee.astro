@@ -1,0 +1,28 @@
+---
+// Clients Marquee Component
+const clients = [
+  "M/s Janani Water Technologies Pvt Ltd",
+  "GlobSol Energy Partners",
+  "Industrial EPC Clients",
+  "Commercial Infrastructure Partners",
+  "Renewable Power Developers"
+];
+---
+
+<section class="py-5 bg-white border-top border-bottom border-light">
+  <div class="container text-center mb-4">
+    <span class="small text-uppercase tracking-wider fw-bold text-muted" style="color: #64748b !important;">Trusted By Industry Leaders Across India</span>
+  </div>
+
+  <div class="container">
+    <div class="row align-items-center justify-content-center g-4 text-center">
+      {clients.map((client) => (
+        <div class="col-6 col-md-4 col-lg-2.4">
+          <div class="p-3 rounded-3 bg-light text-secondary fw-semibold small border border-light shadow-2xs">
+            {client}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
