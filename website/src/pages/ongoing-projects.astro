@@ -4,35 +4,7 @@ import ContactSection from '../components/ContactSection.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
 
-const ongoingProjects = [
-  {
-    id: "ongoing-33kv-substation-electrification",
-    title: "33kV Industrial Substation & Electrification Project",
-    category: "Class 1 Electrical Contracting (33kV)",
-    date: "Active Project (Started Aug 2024)",
-    cover: `${baseUrl}assets/img/projects/janani-water-technologies/gallery-2.jpg`,
-    description: "Active execution of 33kV high voltage substation installation, HT breaker panel wiring, step-down transformer commissioning, and CEIG grid synchronization.",
-    gallery: [
-      `${baseUrl}assets/img/projects/janani-water-technologies/gallery-2.jpg`,
-      `${baseUrl}assets/img/projects/janani-water-technologies/gallery-3.jpg`,
-      `${baseUrl}assets/img/projects/janani-water-technologies/gallery-4.jpg`,
-      `${baseUrl}assets/img/projects/janani-water-technologies/gallery-5.jpg`
-    ]
-  },
-  {
-    id: "ongoing-turnkey-solar-pv-epc",
-    title: "Turnkey Industrial Solar PV Rooftop Project",
-    category: "Turnkey Solar PV EPC",
-    date: "Active Project (Started Jun 2024)",
-    cover: `${baseUrl}assets/img/projects/janani-water-technologies/gallery-4.jpg`,
-    description: "Active turnkey engineering and installation of rooftop solar PV arrays, string inverters, bi-directional net-metering setup, and CEIG statutory inspection approval.",
-    gallery: [
-      `${baseUrl}assets/img/projects/janani-water-technologies/gallery-4.jpg`,
-      `${baseUrl}assets/img/projects/janani-water-technologies/gallery-5.jpg`,
-      `${baseUrl}assets/img/projects/janani-water-technologies/cover.jpg`
-    ]
-  }
-];
+const ongoingProjects: any[] = [];
 ---
 
 <BaseLayout 
@@ -54,48 +26,65 @@ const ongoingProjects = [
     </div>
   </section>
 
-  <!-- Ongoing Projects Grid -->
+  <!-- Ongoing Projects Grid / Empty State -->
   <section class="py-5 bg-light">
     <div class="container">
-      <div class="row g-4">
-        {ongoingProjects.map((project) => (
-          <div class="col-lg-6 col-md-12">
-            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-white">
-              <div class="card-img-container">
-                <a href={project.cover} class="glightbox" data-gallery={project.id} title={project.title}>
-                  <img 
-                    src={project.cover} 
-                    alt={project.title} 
-                    class="w-100 h-100 object-fit-cover transition-all" 
-                  />
-                </a>
-                <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill shadow-sm fw-bold">
-                  In Progress
-                </span>
-              </div>
-              <div class="card-body p-4 d-flex flex-column justify-content-between">
-                <div>
-                  <span class="text-primary fw-bold text-uppercase small tracking-wider">{project.category}</span>
-                  <h3 class="h4 fw-bold text-dark mt-1 mb-2">{project.title}</h3>
-                  <p class="text-secondary mb-4">{project.description}</p>
+      {ongoingProjects.length > 0 ? (
+        <div class="row g-4">
+          {ongoingProjects.map((project) => (
+            <div class="col-lg-6 col-md-12">
+              <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-white">
+                <div class="card-img-container">
+                  <a href={project.cover} class="glightbox" data-gallery={project.id} title={project.title}>
+                    <img 
+                      src={project.cover} 
+                      alt={project.title} 
+                      class="w-100 h-100 object-fit-cover transition-all" 
+                    />
+                  </a>
+                  <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill shadow-sm fw-bold">
+                    In Progress
+                  </span>
                 </div>
+                <div class="card-body p-4 d-flex flex-column justify-content-between">
+                  <div>
+                    <span class="text-primary fw-bold text-uppercase small tracking-wider">{project.category}</span>
+                    <h3 class="h4 fw-bold text-dark mt-1 mb-2">{project.title}</h3>
+                    <p class="text-secondary mb-4">{project.description}</p>
+                  </div>
 
-                <div>
-                  <h6 class="fw-bold small text-secondary mb-2">Photo Gallery</h6>
-                  <div class="d-flex gap-2 flex-wrap">
-                    {project.gallery.map((imgUrl, index) => (
-                      <a href={imgUrl} class="glightbox rounded-3 overflow-hidden shadow-sm d-inline-block" data-gallery={project.id} title={`${project.title} - Photo ${index + 1}`}>
-                        <img src={imgUrl} alt={`${project.title} gallery thumbnail ${index + 1}`} class="thumb-img" />
-                      </a>
-                    ))}
+                  <div>
+                    <h6 class="fw-bold small text-secondary mb-2">Photo Gallery</h6>
+                    <div class="d-flex gap-2 flex-wrap">
+                      {project.gallery.map((imgUrl, index) => (
+                        <a href={imgUrl} class="glightbox rounded-3 overflow-hidden shadow-sm d-inline-block" data-gallery={project.id} title={`${project.title} - Photo ${index + 1}`}>
+                          <img src={imgUrl} alt={`${project.title} gallery thumbnail ${index + 1}`} class="thumb-img" />
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+          ))}
+        </div>
+      ) : (
+        <div class="row justify-content-center py-4">
+          <div class="col-lg-8 text-center">
+            <div class="p-5 bg-white rounded-4 shadow-sm border-0">
+              <div class="rounded-circle bg-light text-primary d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px; background: linear-gradient(135deg, #e0e7ff 0%, #f1f5f9 100%);">
+                <i class="lni lni-construction-hammer fs-1 text-primary"></i>
+              </div>
+              <h3 class="h4 fw-bold text-dark mb-2">No Active Projects Under Execution</h3>
+              <p class="text-secondary mb-4 max-w-lg mx-auto">We are currently preparing for new site deployments. Explore our track record of completed projects or reach out to discuss upcoming contracting opportunities.</p>
+              <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href={`${baseUrl}completed-projects`} class="btn btn-primary px-4 py-2.5 rounded-pill fw-bold shadow-sm">View Completed Projects</a>
+                <a href={`${baseUrl}contact`} class="btn btn-outline-primary px-4 py-2.5 rounded-pill fw-bold">Contact Our Engineers</a>
+              </div>
+            </div>
           </div>
-        ))}
-      </div>
-
+        </div>
+      )}
     </div>
   </section>
 
