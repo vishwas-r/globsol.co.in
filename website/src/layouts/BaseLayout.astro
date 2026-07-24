@@ -24,20 +24,20 @@ const isHome = Astro.url.pathname === "/" || Astro.url.pathname === "";
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" type="image/x-icon" href="/assets/img/logo/logo.png" />
+  <link rel="shortcut icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}assets/img/logo/logo.png`} />
   
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalURL} />
   
   <!-- Space Theme CSS -->
-  <link rel="stylesheet" href="/assets/css/bootstrap-5.0.0-alpha.min.css" />
-  <link rel="stylesheet" href="/assets/css/LineIcons.2.0.css" />
-  <link rel="stylesheet" href="/assets/css/animate.css" />
-  <link rel="stylesheet" href="/assets/css/tiny-slider.css" />
-  <link rel="stylesheet" href="/assets/css/glightbox.min.css" />
-  <link rel="stylesheet" href="/assets/css/main.css" />
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="stylesheet" href={`${import.meta.env.BASE_URL}assets/css/bootstrap-5.0.0-alpha.min.css`} />
+  <link rel="stylesheet" href={`${import.meta.env.BASE_URL}assets/css/LineIcons.2.0.css`} />
+  <link rel="stylesheet" href={`${import.meta.env.BASE_URL}assets/css/animate.css`} />
+  <link rel="stylesheet" href={`${import.meta.env.BASE_URL}assets/css/tiny-slider.css`} />
+  <link rel="stylesheet" href={`${import.meta.env.BASE_URL}assets/css/glightbox.min.css`} />
+  <link rel="stylesheet" href={`${import.meta.env.BASE_URL}assets/css/main.css`} />
+  <link rel="stylesheet" href={`${import.meta.env.BASE_URL}assets/css/style.css`} />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
@@ -92,15 +92,15 @@ const isHome = Astro.url.pathname === "/" || Astro.url.pathname === "";
   <ScrollToTop />
 
   <!-- Vendor JS Files -->
-  <script is:inline src="/assets/js/bootstrap.bundle-5.0.0.alpha-min.js"></script>
-  <script is:inline src="/assets/js/contact-form.js"></script>
-  <script is:inline src="/assets/js/count-up.min.js"></script>
-  <script is:inline src="/assets/js/tiny-slider.js"></script>
-  <script is:inline src="/assets/js/isotope.min.js"></script>
-  <script is:inline src="/assets/js/glightbox.min.js"></script>
-  <script is:inline src="/assets/js/wow.min.js"></script>
-  <script is:inline src="/assets/js/imagesloaded.min.js"></script>
-  <script is:inline src="/assets/js/main.js"></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}assets/js/bootstrap.bundle-5.0.0.alpha-min.js`}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}assets/js/contact-form.js`}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}assets/js/count-up.min.js`}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}assets/js/tiny-slider.js`}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}assets/js/isotope.min.js`}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}assets/js/glightbox.min.js`}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}assets/js/wow.min.js`}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}assets/js/imagesloaded.min.js`}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}assets/js/main.js`}></script>
 
   <script is:inline>
     // ========= GLightbox
