@@ -507,3 +507,59 @@ section + section {
   border: 3px solid rgba(55, 99, 235, 0.15) !important;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
 }
+
+/* --------------------------------------------------------------------------
+   06. Developer Credit Gradient Styling
+   -------------------------------------------------------------------------- */
+.footer .copyright-area a.developer-credit,
+.footer .copyright-area p a.developer-credit,
+a.developer-credit {
+  display: inline-block !important;
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.footer .copyright-area a.developer-credit:hover,
+.footer .copyright-area p a.developer-credit:hover,
+a.developer-credit:hover {
+  text-decoration: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.footer .copyright-area .developer-credit-text,
+.developer-credit-text {
+  display: inline-block !important;
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  background: linear-gradient(90deg, #3763eb 0%, #6f58e8 50%, #3763eb 100%) !important;
+  background-size: 200% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  animation: creditGradientFlow 3s linear infinite !important;
+  transition: filter 0.3s ease-in-out, transform 0.2s ease-in-out !important;
+}
+
+.footer .copyright-area a.developer-credit:hover .developer-credit-text,
+.developer-credit-text:hover {
+  text-decoration: none !important;
+  filter: brightness(1.25) !important;
+  transform: translateY(-1px) !important;
+}
+
+@keyframes creditGradientFlow {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
