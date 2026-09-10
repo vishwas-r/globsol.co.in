@@ -4,7 +4,19 @@ import ContactSection from '../components/ContactSection.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
 
+const toxGallery = Array.from({ length: 51 }, (_, i) => `${baseUrl}assets/img/projects/tox/tox-${i + 1}.jpg`);
+
 const completedProjects = [
+  {
+    id: "tox-bommasandra",
+    title: "TOX Pressotechnik Facility",
+    subtitle: "Bommasandra Industrial Area, Bengaluru",
+    category: "Industrial Electrical Infrastructure & Machine Electrification",
+    date: "Delivered",
+    cover: `${baseUrl}assets/img/projects/tox/tox-1.jpg`,
+    description: "Turnkey industrial electrical infrastructure, plant machinery power distribution, main LT panel wiring, cable tray erection, and comprehensive safety earthing delivered at Bommasandra, Bengaluru.",
+    gallery: toxGallery
+  },
   {
     id: "ferns-corporate-office-ulsoor",
     title: "Ferns Corporate Office, Ulsoor",
@@ -23,16 +35,6 @@ const completedProjects = [
     date: "Delivered",
     cover: `${baseUrl}assets/img/projects/project-placeholder.svg`,
     description: "High-voltage power infrastructure, reception block aesthetic illumination, switchgear setup, transformer connectivity, and specialized distribution networks for Rosetta Resorts at Kalyapura.",
-    gallery: []
-  },
-  {
-    id: "tox-bommasandra",
-    title: "TOX Pressotechnik Facility",
-    subtitle: "Bommasandra Industrial Area",
-    category: "Industrial Electrical Infrastructure",
-    date: "Delivered",
-    cover: `${baseUrl}assets/img/projects/project-placeholder.svg`,
-    description: "Industrial facility electrification, machinery power distribution, control panel wiring, and safety earthing installations delivered at Bommasandra, Bengaluru.",
     gallery: []
   },
   {
@@ -109,12 +111,22 @@ const completedProjects = [
 
                 {project.gallery && project.gallery.length > 0 ? (
                   <div>
-                    <h6 class="fw-bold small text-secondary mb-2">Photo Gallery</h6>
-                    <div class="d-flex gap-2 flex-wrap">
-                      {project.gallery.map((imgUrl, index) => (
-                        <a href={imgUrl} class="glightbox rounded-3 overflow-hidden shadow-sm d-inline-block" data-gallery={project.id} title={`${project.title} - Image ${index + 1}`}>
+                    <h6 class="fw-bold small text-secondary mb-2">Photo Gallery ({project.gallery.length} Photos)</h6>
+                    <div class="d-flex gap-2 flex-wrap align-items-center">
+                      {project.gallery.slice(0, 6).map((imgUrl, index) => (
+                        <a href={imgUrl} class="glightbox rounded-3 overflow-hidden shadow-sm d-inline-block hover-scale" data-gallery={project.id} title={`${project.title} - Photo ${index + 1}`}>
                           <img src={imgUrl} alt={`${project.title} gallery thumbnail ${index + 1}`} class="thumb-img" />
                         </a>
+                      ))}
+                      {project.gallery.length > 6 && (
+                        <a href={project.gallery[6]} class="glightbox rounded-3 shadow-sm d-inline-flex flex-column align-items-center justify-content-center text-decoration-none fw-bold text-white bg-primary text-center hover-scale" style="width: 70px; height: 55px; border-radius: 6px; font-size: 13px; line-height: 1.2;" data-gallery={project.id} title={`${project.title} - Photo 7`}>
+                          <span>+{project.gallery.length - 6}</span>
+                          <span style="font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px;">More</span>
+                        </a>
+                      )}
+                      {/* Hidden anchors for remaining photos so full-screen lightbox contains all images */}
+                      {project.gallery.slice(7).map((imgUrl, index) => (
+                        <a href={imgUrl} class="glightbox d-none" data-gallery={project.id} title={`${project.title} - Photo ${index + 8}`} />
                       ))}
                     </div>
                   </div>

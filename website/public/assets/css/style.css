@@ -294,8 +294,19 @@ html, body {
    03. About Us Section Customizations
    -------------------------------------------------------------------------- */
 
+.about-section .about-img-wrapper {
+  max-width: 580px !important;
+  width: 100% !important;
+}
+
+.about-section .about-img-wrapper .about-img {
+  max-width: 580px !important;
+  width: 100% !important;
+}
+
 .about-section .about-img-wrapper img {
-  max-height: 440px !important;
+  max-height: 540px !important;
+  max-width: 580px !important;
   width: 100% !important;
   object-fit: cover !important;
   border-radius: 20px !important;

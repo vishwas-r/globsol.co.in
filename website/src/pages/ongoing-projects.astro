@@ -65,19 +65,38 @@ const ongoingProjects = [
                 <div class="card-body p-4 d-flex flex-column justify-content-between">
                   <div>
                     <span class="text-primary fw-bold text-uppercase small tracking-wider">{project.category}</span>
-                    <h3 class="h4 fw-bold text-dark mt-1 mb-2">{project.title}</h3>
+                    <h3 class="h4 fw-bold text-dark mt-1 mb-1">{project.title}</h3>
+                    {project.subtitle && <p class="text-muted small fw-semibold mb-2">{project.subtitle}</p>}
                     <p class="text-secondary mb-4">{project.description}</p>
                   </div>
 
                   <div>
-                    <h6 class="fw-bold small text-secondary mb-2">Photo Gallery</h6>
-                    <div class="d-flex gap-2 flex-wrap">
-                      {project.gallery.map((imgUrl, index) => (
-                        <a href={imgUrl} class="glightbox rounded-3 overflow-hidden shadow-sm d-inline-block" data-gallery={project.id} title={`${project.title} - Photo ${index + 1}`}>
-                          <img src={imgUrl} alt={`${project.title} gallery thumbnail ${index + 1}`} class="thumb-img" />
-                        </a>
-                      ))}
-                    </div>
+                    {project.gallery && project.gallery.length > 0 ? (
+                      <div>
+                        <h6 class="fw-bold small text-secondary mb-2">Photo Gallery ({project.gallery.length} Photos)</h6>
+                        <div class="d-flex gap-2 flex-wrap align-items-center">
+                          {project.gallery.slice(0, 6).map((imgUrl, index) => (
+                            <a href={imgUrl} class="glightbox rounded-3 overflow-hidden shadow-sm d-inline-block hover-scale" data-gallery={project.id} title={`${project.title} - Photo ${index + 1}`}>
+                              <img src={imgUrl} alt={`${project.title} gallery thumbnail ${index + 1}`} class="thumb-img" />
+                            </a>
+                          ))}
+                          {project.gallery.length > 6 && (
+                            <a href={project.gallery[6]} class="glightbox rounded-3 shadow-sm d-inline-flex flex-column align-items-center justify-content-center text-decoration-none fw-bold text-white bg-primary text-center hover-scale" style="width: 70px; height: 55px; border-radius: 6px; font-size: 13px; line-height: 1.2;" data-gallery={project.id} title={`${project.title} - Photo 7`}>
+                              <span>+{project.gallery.length - 6}</span>
+                              <span style="font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px;">More</span>
+                            </a>
+                          )}
+                          {/* Hidden anchors for remaining photos so full-screen lightbox contains all images */}
+                          {project.gallery.slice(7).map((imgUrl, index) => (
+                            <a href={imgUrl} class="glightbox d-none" data-gallery={project.id} title={`${project.title} - Photo ${index + 8}`} />
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <div>
+                        <span class="text-muted small italic"><i class="lni lni-camera me-1"></i> Site gallery photos will be updated soon</span>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

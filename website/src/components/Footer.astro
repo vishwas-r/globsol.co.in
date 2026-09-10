@@ -9,8 +9,8 @@ const baseUrl = import.meta.env.BASE_URL;
         <div class="footer-widget mb-60 wow fadeInLeft" data-wow-delay=".2s">
           <a href={baseUrl} class="logo mb-30"><img src={`${baseUrl}assets/img/logo/logo.png`} alt="GlobSol Power Pvt Ltd" style="max-height: 45px; width: auto;"></a>
           <p class="mb-30 footer-desc">Class 1 Government Licensed Electrical Contractors up to 33kV, Turnkey Solar PV EPC & AMC Solutions, and Industrial Logistics & Technical Manpower Supply across India.</p>
-          <div class="footer-social-links mt-4 d-flex align-items-center gap-3">
-            <a href="https://www.facebook.com/GSPPL2020/" target="_blank" rel="noopener noreferrer" class="social-icon rounded-circle d-flex align-items-center justify-content-center text-white shadow-sm" style="width: 38px; height: 38px; background: #1877F2; text-decoration: none;" title="Follow GlobSol on Facebook">
+          <div class="footer-social-links mt-4 d-flex align-items-center">
+            <a href="https://www.facebook.com/GSPPL2020/" target="_blank" rel="noopener noreferrer" class="social-icon rounded-circle d-flex align-items-center justify-content-center text-white shadow-sm me-3" style="width: 38px; height: 38px; background: #1877F2; text-decoration: none; margin-right: 14px;" title="Follow GlobSol on Facebook">
               <i class="lni lni-facebook-filled fs-6"></i>
             </a>
             <a href="https://www.instagram.com/globsolpower/" target="_blank" rel="noopener noreferrer" class="social-icon rounded-circle d-flex align-items-center justify-content-center text-white shadow-sm" style="width: 38px; height: 38px; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); text-decoration: none;" title="Follow GlobSol on Instagram">
@@ -67,10 +67,39 @@ const baseUrl = import.meta.env.BASE_URL;
         </div>
         <div class="col-md-6">
           <p class="wow fadeInUp text-center text-md-end mb-0" data-wow-delay=".3s">
-            <a href="https://vishwas.me/?utm_source=globsol.co.in&utm_medium=footer&utm_campaign=developer_credit" target="_blank" rel="noopener" class="text-decoration-none text-secondary">&lt;/&gt; by VR</a>
+            <a href="https://vishwas.me/?utm_source=globsol.co.in&utm_medium=footer&utm_campaign=developer_credit" target="_blank" rel="noopener" class="developer-credit">
+              &lt;/&gt; by VR
+            </a>
           </p>
         </div>
       </div>
     </div>
   </div>
 </footer>
+
+<style>
+  .developer-credit {
+    display: inline-block;
+    text-decoration: underline !important;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1.5px;
+    color: #64748b !important;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s ease-in-out;
+    animation: creditBlink 1.4s infinite ease-in-out;
+  }
+  .developer-credit:hover {
+    color: var(--gs-primary, #3763eb) !important;
+    text-decoration-color: var(--gs-primary, #3763eb) !important;
+    animation-play-state: paused;
+  }
+  @keyframes creditBlink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.35;
+    }
+  }
+</style>
