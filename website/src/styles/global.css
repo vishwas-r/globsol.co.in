@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --gs-primary: #0a64bc;
-  --gs-primary-dark: #074787;
-  --gs-accent: #f59e0b;
-  --gs-accent-hover: #d97706;
-  --gs-dark: #0b1329;
-  --gs-dark-card: #131e3a;
+  --gs-primary: #3763eb;
+  --gs-primary-dark: #6f58e8;
+  --gs-accent: #0d9dd6;
+  --gs-accent-hover: #025a94;
+  --gs-dark: #07192d;
+  --gs-dark-card: #0d2847;
   --gs-light-bg: #f8fafc;
   --gs-text: #1e293b;
   --gs-text-muted: #64748b;
@@ -289,14 +289,21 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-3px);
 }
 
-/* Disable polygon clip-paths on all inner pages except homepage */
-body.inner-page .testimonial-section,
-body.inner-page .team-section.img-bg::before,
-body.inner-page .feature-section.img-bg::before,
-body.inner-page .subscribe-section.img-bg::before,
-body.inner-page .about-section,
-body.inner-page [style*="clip-path"],
-body.inner-page section {
+/* Disable polygon clip-paths globally across all pages to eliminate mismatched slanted gaps */
+.testimonial-section,
+.testimonial-section::before,
+.team-section,
+.team-section::before,
+.team-section.img-bg::before,
+.feature-section.img-bg::before,
+.subscribe-section,
+.subscribe-section.img-bg::before,
+.contact-section,
+.contact-section.cta-bg,
+.carousel-section-wrapper .carousel-section.clip-bg,
+.about-section,
+[style*="clip-path"],
+section {
   -webkit-clip-path: none !important;
   clip-path: none !important;
 }

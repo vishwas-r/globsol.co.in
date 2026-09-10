@@ -6,10 +6,41 @@ const baseUrl = import.meta.env.BASE_URL;
 
 const completedProjects = [
   {
+    id: "ferns-corporate-office-ulsoor",
+    title: "Ferns Corporate Office, Ulsoor",
+    subtitle: "Ferns Estates & Developers",
+    category: "Electrical Contracting & Power Systems",
+    date: "Delivered",
+    cover: `${baseUrl}assets/img/projects/project-placeholder.svg`,
+    description: "Turnkey electrical contracting, interior power distribution, main electrical panel engineering, and regulatory safety compliance for Ferns Estates corporate headquarters in Ulsoor, Bengaluru.",
+    gallery: []
+  },
+  {
+    id: "rosetta-resorts-reception",
+    title: "Reception Block, Rosetta Resorts",
+    subtitle: "Ferns Forest View, Kalyapura",
+    category: "Hospitality Electrical Contracting & Lighting",
+    date: "Delivered",
+    cover: `${baseUrl}assets/img/projects/project-placeholder.svg`,
+    description: "High-voltage power infrastructure, reception block aesthetic illumination, switchgear setup, transformer connectivity, and specialized distribution networks for Rosetta Resorts at Kalyapura.",
+    gallery: []
+  },
+  {
+    id: "tox-bommasandra",
+    title: "TOX Pressotechnik Facility",
+    subtitle: "Bommasandra Industrial Area",
+    category: "Industrial Electrical Infrastructure",
+    date: "Delivered",
+    cover: `${baseUrl}assets/img/projects/project-placeholder.svg`,
+    description: "Industrial facility electrification, machinery power distribution, control panel wiring, and safety earthing installations delivered at Bommasandra, Bengaluru.",
+    gallery: []
+  },
+  {
     id: "janani-water-technologies",
     title: "M/s Janani Water Technologies Pvt Ltd",
-    category: "Electrical Contracting & Power Systems",
-    date: "Completed Jan 2024",
+    subtitle: "Turnkey Plant Electrification",
+    category: "Electrical Contracting & Power Distribution",
+    date: "Delivered",
     cover: `${baseUrl}assets/img/projects/janani-water-technologies/cover.jpg`,
     description: "Complete electrical installation, wiring, main power panel setup, and high-voltage distribution systems executed for Janani Water Technologies.",
     gallery: [
@@ -35,9 +66,14 @@ const completedProjects = [
         <div class="col-lg-12">
           <span class="badge bg-white text-primary px-3 py-2 rounded-pill fw-bold text-uppercase mb-3 shadow-sm">Track Record</span>
           <h1 class="display-4 fw-bold text-white mb-3">Completed Projects</h1>
-          <p class="lead text-white-50 max-w-xl mx-auto mb-0">
+          <p class="lead text-white-50 max-w-xl mx-auto mb-4">
             Delivered with technical precision, regulatory compliance, and client satisfaction across India.
           </p>
+          <!-- Project Category Navigation Pills -->
+          <div class="d-inline-flex p-1 rounded-pill shadow-sm" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(8px);">
+            <span class="btn btn-sm btn-light rounded-pill px-4 py-2 fw-bold text-primary shadow-sm">Completed Projects</span>
+            <a href={`${baseUrl}ongoing-projects`} class="btn btn-sm text-white text-decoration-none rounded-pill px-4 py-2 fw-semibold">Ongoing Projects <i class="lni lni-arrow-right ms-1"></i></a>
+          </div>
         </div>
       </div>
     </div>
@@ -48,10 +84,10 @@ const completedProjects = [
     <div class="container">
       <div class="row g-4 justify-content-center">
         {completedProjects.map((project) => (
-          <div class="col-xl-5 col-lg-6 col-md-8">
+          <div class="col-xl-6 col-lg-6 col-md-8">
             <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-white">
-              <div class="card-img-container" style="max-height: 280px;">
-                <a href={project.cover} class="glightbox" data-gallery={project.id} title={project.title}>
+              <div class="card-img-container position-relative overflow-hidden" style="height: 260px;">
+                <a href={project.cover} class="glightbox d-block w-100 h-100" data-gallery={project.id} title={project.title}>
                   <img 
                     src={project.cover} 
                     alt={project.title} 
@@ -66,26 +102,45 @@ const completedProjects = [
               <div class="card-body p-4 d-flex flex-column justify-content-between">
                 <div>
                   <span class="text-primary fw-bold text-uppercase small tracking-wider">{project.category}</span>
-                  <h3 class="h4 fw-bold text-dark mt-1 mb-2">{project.title}</h3>
+                  <h3 class="h4 fw-bold text-dark mt-1 mb-1">{project.title}</h3>
+                  {project.subtitle && <p class="text-muted small fw-semibold mb-2">{project.subtitle}</p>}
                   <p class="text-secondary mb-4">{project.description}</p>
                 </div>
 
-                <div>
-                  <h6 class="fw-bold small text-secondary mb-2">Photo Gallery</h6>
-                  <div class="d-flex gap-2 flex-wrap">
-                    {project.gallery.map((imgUrl, index) => (
-                      <a href={imgUrl} class="glightbox rounded-3 overflow-hidden shadow-sm d-inline-block" data-gallery={project.id} title={`${project.title} - Image ${index + 1}`}>
-                        <img src={imgUrl} alt={`${project.title} gallery thumbnail ${index + 1}`} class="thumb-img" />
-                      </a>
-                    ))}
+                {project.gallery && project.gallery.length > 0 ? (
+                  <div>
+                    <h6 class="fw-bold small text-secondary mb-2">Photo Gallery</h6>
+                    <div class="d-flex gap-2 flex-wrap">
+                      {project.gallery.map((imgUrl, index) => (
+                        <a href={imgUrl} class="glightbox rounded-3 overflow-hidden shadow-sm d-inline-block" data-gallery={project.id} title={`${project.title} - Image ${index + 1}`}>
+                          <img src={imgUrl} alt={`${project.title} gallery thumbnail ${index + 1}`} class="thumb-img" />
+                        </a>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <div>
+                    <span class="text-muted small italic"><i class="lni lni-camera me-1"></i> Site gallery photos will be updated soon</span>
+                  </div>
+                )}
               </div>
             </div>
           </div>
         ))}
       </div>
 
+      <!-- Link to Ongoing Projects -->
+      <div class="row mt-5">
+        <div class="col-lg-8 mx-auto text-center">
+          <div class="p-4 bg-white rounded-4 shadow-sm border border-light">
+            <h5 class="fw-bold text-dark mb-2">Interested in our active site executions?</h5>
+            <p class="text-secondary small mb-3">Explore our ongoing infrastructure, resort electrification, and 33kV substation projects currently under execution.</p>
+            <a href={`${baseUrl}ongoing-projects`} class="btn btn-outline-primary px-4 py-2 rounded-pill fw-bold">
+              View Ongoing Projects <i class="lni lni-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 

@@ -1,28 +1,52 @@
 ---
 const baseUrl = import.meta.env.BASE_URL;
+const clientLogos = [
+  { name: "Bharat Electronics Limited", logo: `${baseUrl}assets/img/client-logo/bharat-electronics.png` },
+  { name: "Hindustan Aeronautics Limited", logo: `${baseUrl}assets/img/client-logo/hal.png` },
+  { name: "HMT", logo: `${baseUrl}assets/img/client-logo/hmt.png` },
+  { name: "Hitachi", logo: `${baseUrl}assets/img/client-logo/hitachi.png` },
+  { name: "TOX Pressotechnik", logo: `${baseUrl}assets/img/client-logo/tox.png` },
+  { name: "Flipkart", logo: `${baseUrl}assets/img/client-logo/flipkart.png` },
+  { name: "Ferns Estates & Developers", logo: `${baseUrl}assets/img/client-logo/ferns-estates.svg` },
+  { name: "IIM Bangalore", logo: `${baseUrl}assets/img/client-logo/iimb.svg` },
+  { name: "SYConE CPMC", logo: `${baseUrl}assets/img/client-logo/sycone.png` },
+  { name: "SEONICS", logo: `${baseUrl}assets/img/client-logo/seonics.png` },
+  { name: "Janani Water Technologies", logo: `${baseUrl}assets/img/client-logo/janani.png` },
+  { name: "Rosetta Hospitality", logo: `${baseUrl}assets/img/client-logo/rosetta-hospitality.png` }
+];
+// Duplicate list for seamless infinite loop across all screen resolutions
+const groupLogos = [...clientLogos, ...clientLogos];
 ---
 
-<section id="clients" class="client-logo-section py-4">
-  <div class="container">
-    <div class="client-logo-wrapper">
-      <div class="client-logo-carousel d-flex align-items-center justify-content-between flex-wrap gap-4">
-        <div class="client-logo">
-          <img src={`${baseUrl}assets/img/client-logo/bharat-electronics.png`} alt="Bharat Electronics Limited">
+<section id="clients" class="client-logo-section">
+  <div class="container-fluid px-0">
+    <div class="client-marquee-container">
+      <div class="client-marquee-track">
+        <!-- Group 1 -->
+        <div class="client-marquee-group">
+          {groupLogos.map((item) => (
+            <div class="client-marquee-item">
+              <img 
+                src={item.logo} 
+                alt={item.name} 
+                title={item.name}
+                loading="lazy"
+              />
+            </div>
+          ))}
         </div>
-        <div class="client-logo">
-          <img src={`${baseUrl}assets/img/client-logo/hal.png`} alt="Hindustan Aeronautics Limited">
-        </div>
-        <div class="client-logo">
-          <img src={`${baseUrl}assets/img/client-logo/hmt.png`} alt="HMT">
-        </div>
-        <div class="client-logo">
-          <img src={`${baseUrl}assets/img/client-logo/hitachi.png`} alt="Hitachi">
-        </div>
-        <div class="client-logo">
-          <img src={`${baseUrl}assets/img/client-logo/janani.png`} alt="Janani">
-        </div>
-        <div class="client-logo">
-          <img src={`${baseUrl}assets/img/client-logo/rosetta-hospitality.png`} alt="Rosetta Hospitality">
+        <!-- Group 2 (Duplicate track for continuous infinite carousel) -->
+        <div class="client-marquee-group" aria-hidden="true">
+          {groupLogos.map((item) => (
+            <div class="client-marquee-item">
+              <img 
+                src={item.logo} 
+                alt="" 
+                title={item.name}
+                loading="lazy"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>

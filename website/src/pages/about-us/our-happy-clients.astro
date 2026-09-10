@@ -10,45 +10,69 @@ const clientsList = [
   {
     name: "Bharat Electronics Limited",
     abbr: "BEL",
-    logo: `${baseUrl}assets/img/client-logo/bharat-electronics.png`,
-    description: "High-voltage 33kV electrical contracting, HT transformer installations, and power distribution systems."
+    logo: `${baseUrl}assets/img/client-logo/bharat-electronics.png`
   },
   {
     name: "Hindustan Aeronautics Limited",
     abbr: "HAL",
-    logo: `${baseUrl}assets/img/client-logo/hal.png`,
-    description: "Defense facility industrial electrical maintenance, substation operations, and infrastructure contracting."
+    logo: `${baseUrl}assets/img/client-logo/hal.png`
   },
   {
     name: "HMT Limited",
     abbr: "HMT",
-    logo: `${baseUrl}assets/img/client-logo/hmt.png`,
-    description: "Industrial logistics, heavy equipment handling, and high-capacity electrical distribution network setups."
+    logo: `${baseUrl}assets/img/client-logo/hmt.png`
   },
   {
     name: "Hitachi",
     abbr: "Hitachi",
-    logo: `${baseUrl}assets/img/client-logo/hitachi.png`,
-    description: "Commercial facility electrical contracting and turnkey solar PV rooftop EPC installations."
+    logo: `${baseUrl}assets/img/client-logo/hitachi.png`
+  },
+  {
+    name: "TOX Pressotechnik",
+    abbr: "TOX",
+    logo: `${baseUrl}assets/img/client-logo/tox.png`
+  },
+  {
+    name: "Flipkart",
+    abbr: "Flipkart",
+    logo: `${baseUrl}assets/img/client-logo/flipkart.png`
+  },
+  {
+    name: "Ferns Estates & Developers",
+    abbr: "Ferns",
+    logo: `${baseUrl}assets/img/client-logo/ferns-estates.svg`
+  },
+  {
+    name: "Indian Institute of Management Bangalore",
+    abbr: "IIMB",
+    logo: `${baseUrl}assets/img/client-logo/iimb.svg`
+  },
+  {
+    name: "SYConE CPMC",
+    abbr: "Sycone",
+    logo: `${baseUrl}assets/img/client-logo/sycone.png`
+  },
+  {
+    name: "SEONICS",
+    abbr: "SEONICS",
+    logo: `${baseUrl}assets/img/client-logo/seonics.png`
   },
   {
     name: "Janani Water Technologies",
     abbr: "Janani",
-    logo: `${baseUrl}assets/img/client-logo/janani.png`,
-    description: "Turnkey electrical contracting, power panel engineering, and facility wiring works."
+    logo: `${baseUrl}assets/img/client-logo/janani.png`
   },
   {
     name: "Rosetta Hospitality",
     abbr: "Rosetta",
-    logo: `${baseUrl}assets/img/client-logo/rosetta-hospitality.png`,
-    description: "Facility logistics support, aesthetic lighting, and specialized electrical execution."
+    logo: `${baseUrl}assets/img/client-logo/rosetta-hospitality.png`
   }
 ];
 ---
 
 <BaseLayout 
   title="Our Happy Clients | GlobSol Power Pvt Ltd"
-  description="Trusted by Bharat Electronics, HAL, HMT, Hitachi, Janani, and Rosetta Hospitality."
+  description="Trusted by Bharat Electronics, HAL, HMT, Hitachi, TOX, Flipkart, Ferns Estates, IIMB, Sycone, SEONICS, Janani, and Rosetta Hospitality."
 >
   <!-- Page Banner Section -->
   <section class="page-banner-section py-5 bg-gs-gradient text-white text-center">
@@ -83,14 +107,13 @@ const clientsList = [
 
       <div class="row g-4">
         {clientsList.map((client, index) => (
-          <div class="col-lg-4 col-md-6">
-            <div class="feature-box box-style mb-4 text-center h-100 p-4 bg-white rounded-4 shadow-sm border-0 wow fadeInUp" data-wow-delay={`${0.2 * (index % 3 + 1)}s`}>
-              <div class="p-3 mb-3 bg-light rounded-3 d-flex align-items-center justify-content-center mx-auto" style="height: 70px; max-width: 180px;">
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+            <div class="feature-box box-style mb-4 text-center h-100 p-4 bg-white rounded-4 shadow-sm border-0 wow fadeInUp d-flex flex-column align-items-center justify-content-between" data-wow-delay={`${0.1 * (index % 4 + 1)}s`}>
+              <div class="p-3 mb-3 bg-light rounded-3 d-flex align-items-center justify-content-center w-100" style="height: 90px;">
                 <img src={client.logo} alt={client.name} class="mw-100 mh-100 object-fit-contain" />
               </div>
               <div class="box-content-style feature-content">
-                <h4 class="fw-bold fs-5 text-dark mb-2">{client.name}</h4>
-                <p class="text-secondary small mb-0">{client.description}</p>
+                <h4 class="fw-bold fs-6 text-dark mb-0">{client.name}</h4>
               </div>
             </div>
           </div>

@@ -4,7 +4,18 @@ import ContactSection from '../components/ContactSection.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
 
-const ongoingProjects: any[] = [];
+const ongoingProjects = [
+  {
+    id: "rosetta-resorts-kalyapura",
+    title: "Rosetta Resorts, Kalyapura",
+    subtitle: "Ferns Forest View Luxury Destination",
+    category: "Luxury Resort Electrification & Substation",
+    date: "Under Execution",
+    cover: `${baseUrl}assets/img/projects/project-placeholder.svg`,
+    description: "Turnkey electrical infrastructure, high-capacity substation erection, underground power cable trenching, distribution boards, and landscape aesthetic illumination across the 10-acre luxury resort campus.",
+    gallery: []
+  }
+];
 ---
 
 <BaseLayout 
@@ -18,9 +29,14 @@ const ongoingProjects: any[] = [];
         <div class="col-lg-12">
           <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold text-uppercase mb-3 shadow-sm">Under Execution</span>
           <h1 class="display-4 fw-bold text-white mb-3">Ongoing Projects</h1>
-          <p class="lead text-white-50 max-w-xl mx-auto mb-0">
+          <p class="lead text-white-50 max-w-xl mx-auto mb-4">
             Active Infrastructure & Electrification Engineering Developments Across India
           </p>
+          <!-- Project Category Navigation Pills -->
+          <div class="d-inline-flex p-1 rounded-pill shadow-sm" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(8px);">
+            <a href={`${baseUrl}completed-projects`} class="btn btn-sm text-white text-decoration-none rounded-pill px-4 py-2 fw-semibold"><i class="lni lni-arrow-left me-1"></i> Completed Projects</a>
+            <span class="btn btn-sm btn-light rounded-pill px-4 py-2 fw-bold text-primary shadow-sm">Ongoing Projects</span>
+          </div>
         </div>
       </div>
     </div>
@@ -30,12 +46,12 @@ const ongoingProjects: any[] = [];
   <section class="py-5 bg-light">
     <div class="container">
       {ongoingProjects.length > 0 ? (
-        <div class="row g-4">
+        <div class="row g-4 justify-content-center">
           {ongoingProjects.map((project) => (
             <div class="col-lg-6 col-md-12">
               <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-white">
-                <div class="card-img-container">
-                  <a href={project.cover} class="glightbox" data-gallery={project.id} title={project.title}>
+                <div class="card-img-container position-relative overflow-hidden" style="height: 260px;">
+                  <a href={project.cover} class="glightbox d-block w-100 h-100" data-gallery={project.id} title={project.title}>
                     <img 
                       src={project.cover} 
                       alt={project.title} 
@@ -67,6 +83,19 @@ const ongoingProjects: any[] = [];
               </div>
             </div>
           ))}
+        </div>
+
+        <!-- Link to Completed Projects -->
+        <div class="row mt-5">
+          <div class="col-lg-8 mx-auto text-center">
+            <div class="p-4 bg-white rounded-4 shadow-sm border border-light">
+              <h5 class="fw-bold text-dark mb-2">Looking for our delivered project record?</h5>
+              <p class="text-secondary small mb-3">Explore our completed portfolio of 33kV electrical contracting, turnkey solar PV EPC, and facility power installations.</p>
+              <a href={`${baseUrl}completed-projects`} class="btn btn-outline-primary px-4 py-2 rounded-pill fw-bold">
+                <i class="lni lni-arrow-left me-1"></i> View Completed Projects
+              </a>
+            </div>
+          </div>
         </div>
       ) : (
         <div class="row justify-content-center py-4">
