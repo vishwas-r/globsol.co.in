@@ -24,7 +24,12 @@ html, body {
 }
 
 
-/* Mobile Navbar Sticky Header Fix (< 992px) */
+/* Submenu Toggle Button for Mobile Navigation (< 992px) */
+.sub-menu-toggle {
+  display: none;
+}
+
+/* Mobile Navbar Sticky Header & Navigation Enhancements (< 992px) */
 @media (max-width: 991px) {
   .header.navbar-area {
     position: fixed !important;
@@ -46,6 +51,115 @@ html, body {
     padding: 15px 20px !important;
     border-radius: 0 0 10px 10px !important;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    max-height: calc(100vh - 85px) !important;
+    overflow-y: auto !important;
+  }
+
+  .navbar-nav .nav-item {
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  }
+
+  .navbar-nav .nav-item:last-child {
+    border-bottom: none;
+  }
+
+  /* Make room for the toggle button on parent links */
+  .navbar-nav .nav-item a.dd-menu {
+    padding-right: 50px !important;
+  }
+
+  /* Hide pseudo-chevron on mobile since we have a dedicated button */
+  .navbar-nav .nav-item a.dd-menu::after {
+    display: none !important;
+  }
+
+  /* Dedicated chevron toggle button */
+  .sub-menu-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 48px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    z-index: 5;
+    color: #051441;
+    font-size: 13px;
+    padding: 0;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .sub-menu-toggle:hover,
+  .sub-menu-toggle:focus {
+    color: #3763EB;
+    background-color: rgba(55, 99, 235, 0.06);
+  }
+
+  .sub-menu-toggle i {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    pointer-events: none;
+  }
+
+  .sub-menu-toggle.active i,
+  .sub-menu-toggle[aria-expanded="true"] i {
+    transform: rotate(180deg);
+    color: #3763EB;
+  }
+
+  /* Mobile Submenu Accordion */
+  .navbar-nav .nav-item .sub-menu {
+    position: static !important;
+    width: 100% !important;
+    background-color: #f8faff !important;
+    border-radius: 8px !important;
+    margin: 2px 0 10px !important;
+    padding: 4px 0 !important;
+    box-shadow: none !important;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: max-height 0.35s ease, opacity 0.3s ease, transform 0.35s ease, visibility 0.35s ease !important;
+  }
+
+  .navbar-nav .nav-item .sub-menu.show {
+    max-height: 500px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: scaleY(1) !important;
+  }
+
+  .navbar-nav .nav-item .sub-menu > li > a {
+    padding: 10px 16px 10px 20px !important;
+    font-size: 14px !important;
+    color: #334155 !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.04) !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start !important;
+  }
+
+  .navbar-nav .nav-item .sub-menu > li:first-child > a {
+    border-top: none !important;
+  }
+
+  .navbar-nav .nav-item .sub-menu > li > a:hover,
+  .navbar-nav .nav-item .sub-menu > li > a:active {
+    color: #3763EB !important;
+    background-color: rgba(55, 99, 235, 0.06) !important;
+    padding-left: 24px !important;
+    transition: all 0.2s ease;
   }
 }
 

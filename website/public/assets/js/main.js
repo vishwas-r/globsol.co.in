@@ -43,13 +43,76 @@
 	};
 
 
-	//===== navbar-toggler
+	//===== navbar-toggler & sub-menu toggler
 	let navbarToggler = document.querySelector(".navbar-toggler");
+	let subMenuToggles = document.querySelectorAll(".sub-menu-toggle");
+
+	function resetSubMenus() {
+		subMenuToggles.forEach(function (toggle) {
+			toggle.setAttribute("aria-expanded", "false");
+			toggle.classList.remove("active");
+			var parent = toggle.closest(".nav-item");
+			var sub = parent ? parent.querySelector(".sub-menu") : null;
+			if (sub) {
+				sub.classList.remove("show");
+			}
+		});
+	}
+
 	if (navbarToggler) {
 		navbarToggler.addEventListener('click', function () {
 			navbarToggler.classList.toggle("active");
+			if (!navbarToggler.classList.contains("active")) {
+				resetSubMenus();
+			}
 		});
 	}
+
+	//===== Mobile Submenu Dropdown Toggler
+	if (subMenuToggles.length > 0) {
+		subMenuToggles.forEach(function (toggle) {
+			toggle.addEventListener("click", function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+
+				var parentItem = this.closest(".nav-item");
+				var subMenu = parentItem ? parentItem.querySelector(".sub-menu") : null;
+
+				if (subMenu) {
+					var isExpanded = this.getAttribute("aria-expanded") === "true";
+
+					// Close other open submenus for accordion behavior
+					subMenuToggles.forEach(function (otherToggle) {
+						if (otherToggle !== toggle) {
+							otherToggle.setAttribute("aria-expanded", "false");
+							otherToggle.classList.remove("active");
+							var otherParent = otherToggle.closest(".nav-item");
+							var otherSub = otherParent ? otherParent.querySelector(".sub-menu") : null;
+							if (otherSub) {
+								otherSub.classList.remove("show");
+							}
+						}
+					});
+
+					if (isExpanded) {
+						this.setAttribute("aria-expanded", "false");
+						this.classList.remove("active");
+						subMenu.classList.remove("show");
+					} else {
+						this.setAttribute("aria-expanded", "true");
+						this.classList.add("active");
+						subMenu.classList.add("show");
+					}
+				}
+			});
+		});
+	}
+
+	window.addEventListener("resize", function () {
+		if (window.innerWidth >= 992) {
+			resetSubMenus();
+		}
+	});
 
 
 	//======== tiny slider
