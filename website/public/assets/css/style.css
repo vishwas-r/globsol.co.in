@@ -121,8 +121,8 @@ html, body {
     width: 100% !important;
     background-color: #f8faff !important;
     border-radius: 8px !important;
-    margin: 2px 0 10px !important;
-    padding: 4px 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
     box-shadow: none !important;
     overflow: hidden;
     max-height: 0;
@@ -138,6 +138,8 @@ html, body {
     opacity: 1 !important;
     visibility: visible !important;
     transform: scaleY(1) !important;
+    margin: 0 !important;
+    padding: 4px 0 !important;
   }
 
   .navbar-nav .nav-item .sub-menu > li > a {
