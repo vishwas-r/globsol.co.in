@@ -12,8 +12,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="row align-items-center">
         <div class="col-lg-8 mx-auto">
           <div class="d-flex flex-wrap justify-content-center align-items-center gap-2 mb-3">
-            <span class="badge bg-white text-primary px-3 py-2 rounded-pill fw-bold text-uppercase shadow-sm">Get In Touch</span>
-            <span class="badge text-white px-3 py-2 rounded-pill fw-semibold shadow-sm" style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(4px);">
+            <span class="badge bg-white text-primary px-2.5 py-1 rounded-pill fw-bold text-uppercase shadow-sm" style="font-size: 0.72rem; letter-spacing: 0.5px; line-height: 1.2;">Get In Touch</span>
+            <span class="badge text-white px-2.5 py-1 rounded-pill fw-semibold shadow-sm" style="background: rgba(255, 255, 255, 0.16); border: 1px solid rgba(255, 255, 255, 0.35); backdrop-filter: blur(6px); font-size: 0.75rem; line-height: 1.2;">
               <i class="lni lni-shield me-1"></i> Class 1 Licensed Electrical Contractor
             </span>
           </div>
@@ -121,8 +121,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <h3 class="h4 fw-bold text-dark mb-2">Request Project Estimate</h3>
             <p class="text-secondary small mb-4">Share your technical scope, site specifications, or inquiry details below.</p>
             
-            <!-- Formspree Endpoint Form -->
-            <form action="https://formspree.io/f/xbjnqkyz" method="POST">
+            <!-- Formsubmit.co Free Endpoint Form -->
+            <div id="form-error" class="alert alert-danger d-none rounded-3 py-2 small mb-3">
+              <i class="lni lni-warning me-1"></i> Something went wrong while submitting. Please try again or email us directly at <a href="mailto:info@globsol.co.in" class="fw-bold">info@globsol.co.in</a>.
+            </div>
+
+            <form id="contact-form" action="https://formsubmit.co/info@globsol.co.in" method="POST">
+              <!-- FormSubmit Configuration -->
+              <input type="hidden" name="_subject" value="New Project Inquiry - GlobSol Power" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="text" name="_honey" style="display:none" />
+
               <div class="row g-3">
                 <div class="col-md-6">
                   <label class="form-label small fw-bold text-dark">Your Full Name *</label>
@@ -150,15 +160,87 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <textarea name="message" rows="4" class="form-control form-control-lg fs-6 rounded-3" placeholder="Provide project location, voltage rating, MW size, or power & logistics requirements..." required></textarea>
                 </div>
                 <div class="col-12 mt-4">
-                  <button type="submit" class="btn btn-lg w-100 py-3 rounded-pill fw-bold text-white shadow-sm bg-gs-gradient border-0">
-                    Submit Inquiry <i class="lni lni-arrow-right ms-2"></i>
+                  <button type="submit" id="submit-btn" class="btn btn-lg w-100 py-3 rounded-pill fw-bold text-white shadow-sm bg-gs-gradient border-0 d-flex align-items-center justify-content-center">
+                    <span>Submit Inquiry</span> <i class="lni lni-arrow-right ms-2"></i>
                   </button>
                 </div>
               </div>
             </form>
+
+            <!-- Success State Box -->
+            <div id="form-success" class="d-none text-center py-4">
+              <div class="rounded-circle text-white d-inline-flex align-items-center justify-content-center shadow mb-3 bg-success" style="width: 64px; height: 64px;">
+                <i class="lni lni-checkmark fs-2"></i>
+              </div>
+              <h4 class="fw-bold text-dark mb-2">Inquiry Submitted Successfully!</h4>
+              <p class="text-secondary small max-w-md mx-auto mb-4">
+                Thank you for contacting GlobSol Power. Our engineering team has received your project details and will review and respond within 24 business hours.
+              </p>
+              <button type="button" id="submit-another-btn" class="btn btn-outline-primary rounded-pill px-4 py-2 fw-semibold btn-sm">
+                Submit Another Inquiry
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('contact-form');
+      const formSuccess = document.getElementById('form-success');
+      const formError = document.getElementById('form-error');
+      const submitBtn = document.getElementById('submit-btn');
+      const submitAnotherBtn = document.getElementById('submit-another-btn');
+
+      if (!form) return;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        if (formError) formError.classList.add('d-none');
+        
+        const originalBtnContent = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span>Sending Inquiry...</span> <span class="spinner-border spinner-border-sm ms-2" role="status" aria-hidden="true"></span>`;
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+          const response = await fetch('https://formsubmit.co/ajax/info@globsol.co.in', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
+
+          if (response.ok) {
+            form.reset();
+            form.classList.add('d-none');
+            if (formSuccess) formSuccess.classList.remove('d-none');
+          } else {
+            // If AJAX returns non-ok, fall back to native form submission
+            form.submit();
+          }
+        } catch (err) {
+          // If fetch fails or network blocked, fall back to native form submission
+          form.submit();
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnContent;
+        }
+      });
+
+      if (submitAnotherBtn) {
+        submitAnotherBtn.addEventListener('click', () => {
+          if (formSuccess) formSuccess.classList.add('d-none');
+          if (form) form.classList.remove('d-none');
+        });
+      }
+    });
+  </script>
 </BaseLayout>
