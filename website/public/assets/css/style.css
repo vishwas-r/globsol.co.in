@@ -24,33 +24,94 @@ html, body {
 }
 
 
+/* --------------------------------------------------------------------------
+   Translucent Frosted-Glass Navbar (All pages, desktop & mobile, unscrolled & scrolled)
+   -------------------------------------------------------------------------- */
+.header.navbar-area {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 9999 !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(14px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(180%) !important;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+  transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+
+.header.navbar-area .navbar {
+  padding: 14px 0 !important;
+  transition: padding 0.3s ease !important;
+}
+
+/* Translucent when scrolled down (sticky) */
+.header.navbar-area.sticky {
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+.header.navbar-area.sticky .navbar {
+  padding: 8px 0 !important;
+}
+
+/* Navigation Links Crisp Styling */
+.navbar-nav .nav-item a {
+  font-weight: 600 !important;
+  color: #051441 !important;
+  transition: color 0.25s ease !important;
+}
+
+.navbar-nav .nav-item:hover > a,
+.navbar-nav .nav-item a.active {
+  color: #3763EB !important;
+}
+
+/* Desktop Dropdown Submenu Frosted Glass */
+@media (min-width: 992px) {
+  .navbar-nav .nav-item a {
+    padding: 12px 18px !important;
+  }
+
+  .navbar-nav .nav-item .sub-menu {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12) !important;
+    padding: 8px 0 !important;
+  }
+
+  .navbar-nav .nav-item .sub-menu::after {
+    background: rgba(255, 255, 255, 0.95) !important;
+  }
+}
+
 /* Submenu Toggle Button for Mobile Navigation (< 992px) */
 .sub-menu-toggle {
   display: none;
 }
 
-/* Mobile Navbar Sticky Header & Navigation Enhancements (< 992px) */
+/* Mobile Navbar Header & Navigation Enhancements (< 992px) */
 @media (max-width: 991px) {
-  .header.navbar-area {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    z-index: 9999 !important;
-    background: #ffffff !important;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08) !important;
-  }
-
   .header.navbar-area .navbar {
     padding: 10px 0 !important;
   }
 
   .navbar-collapse {
-    background: #ffffff !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
     padding: 15px 20px !important;
-    border-radius: 0 0 10px 10px !important;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 0 0 12px 12px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12) !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
     max-height: calc(100vh - 85px) !important;
     overflow-y: auto !important;
   }
