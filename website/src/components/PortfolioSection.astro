@@ -1,5 +1,56 @@
 ---
 const baseUrl = import.meta.env.BASE_URL;
+
+const projects = [
+  {
+    title: "TOX Pressotechnik Facility",
+    category: "Industrial Electrical & Machine Electrification",
+    description: "Industrial facility electrification, machinery power distribution, control panel wiring, and safety earthing at Bommasandra, Bengaluru.",
+    image: `${baseUrl}assets/img/projects/tox/tox-1.jpg`,
+    status: "Completed",
+    link: `${baseUrl}completed-projects`
+  },
+  {
+    title: "M/s Janani Water Technologies",
+    category: "Turnkey Plant Electrification & Panels",
+    description: "Complete electrical contracting, main LT power panels, motor control centers, and high-voltage distribution systems.",
+    image: `${baseUrl}assets/img/projects/janani-water-technologies/cover.jpg`,
+    status: "Completed",
+    link: `${baseUrl}completed-projects`
+  },
+  {
+    title: "Commercial Solar PV Installations",
+    category: "Solar EPC & AMC Solutions",
+    description: "Turnkey commercial solar PV installations, grid synchronization, net metering approvals, and ongoing performance maintenance.",
+    image: `${baseUrl}assets/img/projects/janani-water-technologies/gallery-1.jpg`,
+    status: "Completed",
+    link: `${baseUrl}completed-projects`
+  },
+  {
+    title: "Ferns Corporate Office, Ulsoor",
+    category: "Commercial Electrical Systems",
+    description: "Turnkey electrical contracting, interior power distribution, and power panel engineering delivered for Ferns Estates & Developers.",
+    image: `${baseUrl}assets/img/projects/project-placeholder.svg`,
+    status: "Completed",
+    link: `${baseUrl}completed-projects`
+  },
+  {
+    title: "Reception Block, Rosetta Resorts",
+    category: "Hospitality Electrical Contracting",
+    description: "High-voltage electrical contracting, aesthetic reception illumination, switchgear setup, and power distribution for Rosetta Resorts, Kalyapura.",
+    image: `${baseUrl}assets/img/projects/project-placeholder.svg`,
+    status: "Completed",
+    link: `${baseUrl}completed-projects`
+  },
+  {
+    title: "Rosetta Resorts, Kalyapura",
+    category: "Resort Electrification & 33kV Substation",
+    description: "Turnkey electrical infrastructure, high-capacity substation erection, underground power cable trenching, and landscape illumination.",
+    image: `${baseUrl}assets/img/projects/project-placeholder.svg`,
+    status: "Ongoing",
+    link: `${baseUrl}ongoing-projects`
+  }
+];
 ---
 
 <section id="portfolio" class="portfolio-section pt-130 pb-100">
@@ -8,81 +59,49 @@ const baseUrl = import.meta.env.BASE_URL;
       <div class="col-xl-6 col-lg-6">
         <div class="section-title mb-60">
           <span class="wow fadeInDown" data-wow-delay=".2s">Portfolio</span>
-          <h2 class="wow fadeInUp" data-wow-delay=".4s">Our Recent Works</h2>
+          <h2 class="wow fadeInUp" data-wow-delay=".4s">Our Featured Projects</h2>
         </div>
       </div>
       <div class="col-xl-6 col-lg-6">
         <div class="section-title mb-60">
-          <p class="wow fadeInUp" data-wow-delay=".4s">A glimpse into our completed high-voltage electrical contracting, substation engineering, and solar PV EPC installations delivered across India.</p>
+          <p class="wow fadeInUp" data-wow-delay=".4s">A glimpse into our completed high-voltage electrical contracting up to 33kV, plant electrification, substation engineering, and solar PV EPC installations delivered across India.</p>
         </div>
       </div>
     </div>
 
     <div class="row justify-content-center g-4">
-      <!-- Project 1: TOX Pressotechnik Facility -->
-      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-        <div class="portfolio-item-wrapper">
-          <div class="portfolio-img">
-            <img
-              src={`${baseUrl}assets/img/projects/tox/tox-1.jpg`}
-              alt="TOX Pressotechnik Facility, Bommasandra"
-              loading="lazy"
-            >
-          </div>
-          <div class="portfolio-overlay">
-            <div class="overlay-content">
-              <h4>TOX Pressotechnik Facility</h4>
-              <p>Industrial facility electrification, machinery power distribution, control panel wiring, and safety earthing at Bommasandra.</p>
-              <a href={`${baseUrl}completed-projects`} class="theme-btn border-btn">View Project</a>
+      {projects.map((project, index) => (
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay={`${0.2 + (index % 3) * 0.1}s`}>
+          <div class="portfolio-item-wrapper position-relative overflow-hidden rounded-3 shadow-sm">
+            <div class="portfolio-img position-relative">
+              <img
+                src={project.image}
+                alt={project.title}
+                loading="lazy"
+              />
+              <span class={`badge ${project.status === 'Ongoing' ? 'bg-warning text-dark' : 'bg-success text-white'} position-absolute top-0 start-0 m-3 px-3 py-1.5 rounded-pill shadow-sm fw-semibold`} style="z-index: 2; font-size: 12px;">
+                {project.status}
+              </span>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="overlay-content">
+                <span class="badge bg-light text-primary mb-2 px-2.5 py-1 rounded-pill small fw-bold text-uppercase">{project.category}</span>
+                <h4>{project.title}</h4>
+                <p>{project.description}</p>
+                <a href={project.link} class="theme-btn border-btn">View Project</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- Project 2: Ferns Corporate Office, Ulsoor -->
-      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-        <div class="portfolio-item-wrapper">
-          <div class="portfolio-img">
-            <img
-              src={`${baseUrl}assets/img/projects/project-placeholder.svg`}
-              alt="Ferns Estates & Developers Corporate Office, Ulsoor"
-              loading="lazy"
-            >
-          </div>
-          <div class="portfolio-overlay">
-            <div class="overlay-content">
-              <h4>Ferns Corporate Office, Ulsoor</h4>
-              <p>Turnkey electrical contracting, interior power distribution, and power panel engineering delivered for Ferns Estates & Developers.</p>
-              <a href={`${baseUrl}completed-projects`} class="theme-btn border-btn">View Project</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 3: Reception Block, Rosetta Resorts (Ferns Forest View) -->
-      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-        <div class="portfolio-item-wrapper">
-          <div class="portfolio-img">
-            <img
-              src={`${baseUrl}assets/img/projects/project-placeholder.svg`}
-              alt="Reception Block, Rosetta Resorts, Kalyapura (Ferns Forest View)"
-              loading="lazy"
-            >
-          </div>
-          <div class="portfolio-overlay">
-            <div class="overlay-content">
-              <h4>Reception Block, Rosetta Resorts</h4>
-              <p>High-voltage electrical contracting, aesthetic reception illumination, switchgear setup, and power distribution for Rosetta Resorts, Kalyapura.</p>
-              <a href={`${baseUrl}completed-projects`} class="theme-btn border-btn">View Project</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
 
     <div class="row">
       <div class="col-12 text-center mt-50">
-        <a href={`${baseUrl}completed-projects`} class="theme-btn wow fadeInUp" data-wow-delay=".3s">View All Projects</a>
+        <div class="d-inline-flex gap-3 flex-wrap justify-content-center">
+          <a href={`${baseUrl}completed-projects`} class="theme-btn wow fadeInUp" data-wow-delay=".3s">View Completed Projects</a>
+          <a href={`${baseUrl}ongoing-projects`} class="theme-btn border-btn wow fadeInUp" data-wow-delay=".4s">View Ongoing Projects</a>
+        </div>
       </div>
     </div>
   </div>
@@ -91,7 +110,7 @@ const baseUrl = import.meta.env.BASE_URL;
 <style>
   .portfolio-item-wrapper .portfolio-img {
     width: 100%;
-    height: 380px;
+    height: 340px;
     overflow: hidden;
     position: relative;
   }
